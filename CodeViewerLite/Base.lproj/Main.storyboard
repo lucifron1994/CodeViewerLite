@@ -1,14 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Fgk-dE-cLp">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Home Page View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="HomePageViewController" customModule="CodeViewerLite" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +20,84 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QRI-Kp-ffq">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="QRI-Kp-ffq" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="DEx-Po-mcG"/>
+                            <constraint firstItem="QRI-Kp-ffq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="LvH-WU-hY8"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="QRI-Kp-ffq" secondAttribute="bottom" id="Sbf-W9-wsZ"/>
+                            <constraint firstAttribute="trailing" secondItem="QRI-Kp-ffq" secondAttribute="trailing" id="cu0-7u-5Ej"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="ghQ-TU-NOM">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="yBX-rY-Rqp">
+                            <connections>
+                                <segue destination="13J-cP-oC4" kind="show" id="9KS-ws-R3c"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="620" y="163.26836581709148"/>
+        </scene>
+        <!--Brower View Controller-->
+        <scene sceneID="UBQ-NZ-kqm">
+            <objects>
+                <viewController id="13J-cP-oC4" customClass="BrowerViewController" customModule="CodeViewerLite" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="L6I-3b-zdc"/>
+                        <viewControllerLayoutGuide type="bottom" id="G2U-Td-68V"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gze-hw-4s7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Write the code Change the world" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="iMZ-cI-OWt">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="iMZ-cI-OWt" firstAttribute="top" secondItem="gze-hw-4s7" secondAttribute="top" id="BbR-13-0NJ"/>
+                            <constraint firstItem="iMZ-cI-OWt" firstAttribute="leading" secondItem="gze-hw-4s7" secondAttribute="leading" id="Bvt-uR-1nr"/>
+                            <constraint firstItem="G2U-Td-68V" firstAttribute="top" secondItem="iMZ-cI-OWt" secondAttribute="bottom" id="Eun-Bz-ulv"/>
+                            <constraint firstAttribute="trailing" secondItem="iMZ-cI-OWt" secondAttribute="trailing" id="KhI-du-i4R"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="codeTextView" destination="iMZ-cI-OWt" id="6V5-kw-byx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9xL-SP-ZSo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1413.5999999999999" y="168.6656671664168"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="O7a-6C-MHp">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Fgk-dE-cLp" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="W3e-Zu-Bqx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="fwt-gV-6HA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e90-fi-rvA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-194.40000000000001" y="163.26836581709148"/>
         </scene>
     </scenes>
 </document>

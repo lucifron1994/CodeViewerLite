@@ -8,20 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		3EAAC7DD1E334C66008DA833 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAAC7DC1E334C66008DA833 /* AppDelegate.swift */; };
-		3EAAC7DF1E334C66008DA833 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAAC7DE1E334C66008DA833 /* ViewController.swift */; };
 		3EAAC7E21E334C66008DA833 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EAAC7E01E334C66008DA833 /* Main.storyboard */; };
 		3EAAC7E41E334C66008DA833 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EAAC7E31E334C66008DA833 /* Assets.xcassets */; };
 		3EAAC7E71E334C66008DA833 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EAAC7E51E334C66008DA833 /* LaunchScreen.storyboard */; };
+		3EAAC7F31E334E52008DA833 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAAC7F21E334E52008DA833 /* HomePageViewController.swift */; };
+		3EAAC7F51E334EDA008DA833 /* BrowerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAAC7F41E334EDA008DA833 /* BrowerViewController.swift */; };
+		3EAAC7F71E335155008DA833 /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAAC7F61E335155008DA833 /* FileHelper.swift */; };
+		7A2BA0ADD5227E54C004E649 /* Pods_CodeViewerLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1C21750F94FE647E4713E81 /* Pods_CodeViewerLite.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		237A279EAD88F61A5F27C3A6 /* Pods-CodeViewerLite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeViewerLite.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CodeViewerLite/Pods-CodeViewerLite.debug.xcconfig"; sourceTree = "<group>"; };
 		3EAAC7D91E334C66008DA833 /* CodeViewerLite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeViewerLite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EAAC7DC1E334C66008DA833 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3EAAC7DE1E334C66008DA833 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3EAAC7E11E334C66008DA833 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3EAAC7E31E334C66008DA833 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3EAAC7E61E334C66008DA833 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3EAAC7E81E334C66008DA833 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3EAAC7F21E334E52008DA833 /* HomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
+		3EAAC7F41E334EDA008DA833 /* BrowerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowerViewController.swift; sourceTree = "<group>"; };
+		3EAAC7F61E335155008DA833 /* FileHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
+		A248E6C52A0FF4FB1399C6CF /* Pods-CodeViewerLite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeViewerLite.release.xcconfig"; path = "Pods/Target Support Files/Pods-CodeViewerLite/Pods-CodeViewerLite.release.xcconfig"; sourceTree = "<group>"; };
+		B1C21750F94FE647E4713E81 /* Pods_CodeViewerLite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CodeViewerLite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A2BA0ADD5227E54C004E649 /* Pods_CodeViewerLite.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +49,8 @@
 			children = (
 				3EAAC7DB1E334C66008DA833 /* CodeViewerLite */,
 				3EAAC7DA1E334C66008DA833 /* Products */,
+				48878EB056C2D4737466E3EE /* Pods */,
+				B9CB831D9CAB3C833C1F65A0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +65,65 @@
 		3EAAC7DB1E334C66008DA833 /* CodeViewerLite */ = {
 			isa = PBXGroup;
 			children = (
+				3EAAC7EE1E334DAD008DA833 /* Class */,
+				3EAAC7EF1E334DCA008DA833 /* Others */,
+			);
+			path = CodeViewerLite;
+			sourceTree = "<group>";
+		};
+		3EAAC7EE1E334DAD008DA833 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				3EAAC7F01E334E3D008DA833 /* Brower */,
+				3EAAC7F11E334E3D008DA833 /* HomePage */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		3EAAC7EF1E334DCA008DA833 /* Others */ = {
+			isa = PBXGroup;
+			children = (
 				3EAAC7DC1E334C66008DA833 /* AppDelegate.swift */,
-				3EAAC7DE1E334C66008DA833 /* ViewController.swift */,
 				3EAAC7E01E334C66008DA833 /* Main.storyboard */,
 				3EAAC7E31E334C66008DA833 /* Assets.xcassets */,
 				3EAAC7E51E334C66008DA833 /* LaunchScreen.storyboard */,
 				3EAAC7E81E334C66008DA833 /* Info.plist */,
 			);
-			path = CodeViewerLite;
+			name = Others;
+			sourceTree = "<group>";
+		};
+		3EAAC7F01E334E3D008DA833 /* Brower */ = {
+			isa = PBXGroup;
+			children = (
+				3EAAC7F41E334EDA008DA833 /* BrowerViewController.swift */,
+			);
+			path = Brower;
+			sourceTree = "<group>";
+		};
+		3EAAC7F11E334E3D008DA833 /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				3EAAC7F21E334E52008DA833 /* HomePageViewController.swift */,
+				3EAAC7F61E335155008DA833 /* FileHelper.swift */,
+			);
+			path = HomePage;
+			sourceTree = "<group>";
+		};
+		48878EB056C2D4737466E3EE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				237A279EAD88F61A5F27C3A6 /* Pods-CodeViewerLite.debug.xcconfig */,
+				A248E6C52A0FF4FB1399C6CF /* Pods-CodeViewerLite.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B9CB831D9CAB3C833C1F65A0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B1C21750F94FE647E4713E81 /* Pods_CodeViewerLite.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +133,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3EAAC7EB1E334C66008DA833 /* Build configuration list for PBXNativeTarget "CodeViewerLite" */;
 			buildPhases = (
+				50448D493BDA62A8934383DB /* [CP] Check Pods Manifest.lock */,
 				3EAAC7D51E334C66008DA833 /* Sources */,
 				3EAAC7D61E334C66008DA833 /* Frameworks */,
 				3EAAC7D71E334C66008DA833 /* Resources */,
+				E94520AECD39B3021A93F1C6 /* [CP] Embed Pods Frameworks */,
+				02DA23503A86A12F6B553E4B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,13 +196,63 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		02DA23503A86A12F6B553E4B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CodeViewerLite/Pods-CodeViewerLite-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		50448D493BDA62A8934383DB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E94520AECD39B3021A93F1C6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CodeViewerLite/Pods-CodeViewerLite-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3EAAC7D51E334C66008DA833 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3EAAC7DF1E334C66008DA833 /* ViewController.swift in Sources */,
+				3EAAC7F31E334E52008DA833 /* HomePageViewController.swift in Sources */,
 				3EAAC7DD1E334C66008DA833 /* AppDelegate.swift in Sources */,
+				3EAAC7F51E334EDA008DA833 /* BrowerViewController.swift in Sources */,
+				3EAAC7F71E335155008DA833 /* FileHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +373,7 @@
 		};
 		3EAAC7EC1E334C66008DA833 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 237A279EAD88F61A5F27C3A6 /* Pods-CodeViewerLite.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CodeViewerLite/Info.plist;
@@ -270,6 +386,7 @@
 		};
 		3EAAC7ED1E334C66008DA833 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A248E6C52A0FF4FB1399C6CF /* Pods-CodeViewerLite.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CodeViewerLite/Info.plist;
@@ -299,6 +416,7 @@
 				3EAAC7ED1E334C66008DA833 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

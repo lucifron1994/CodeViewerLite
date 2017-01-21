@@ -1,0 +1,6 @@
+framework module Pods_CodeViewerLite {
+  umbrella header "Pods-CodeViewerLite-umbrella.h"
+
+  export *
+  module * { export * }
+}
