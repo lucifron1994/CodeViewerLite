@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>ActionSheetPicker-3.0.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Highlightr.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>029D0BD4B911FCFA1B21E271CE7EF58E</key>
+		<key>3E82C97C37EE3D12631F036F215891BB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4E978DDB6E0A0483AA2A89C8F503F368</key>
+		<key>965699190112DDBD9B7864D091660DBC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>C9ABFCA2B8BFB8BD4BAA30C9B9712B74</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>ED1165B1288F1339FEAF10288B38C7AB</key>
 		<dict>
 			<key>primary</key>
 			<true/>

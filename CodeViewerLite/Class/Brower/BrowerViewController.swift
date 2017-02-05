@@ -9,23 +9,34 @@
 import UIKit
 import Highlightr
 import SnapKit
+import ActionSheetPicker_3_0
 
-class BrowerViewController: UIViewController {
-
+class BrowerViewController: UIViewController, UIGestureRecognizerDelegate {
+    
     var codeTextView: UITextView?
     
     var highlightr : Highlightr!
     let textStorage = CodeAttributedString()
     
+    var themeName : String?
+    var languageName : String?
+    
+    @IBOutlet weak var navigationBarBG: UIView!
+    @IBOutlet weak var navigationBar_: UINavigationBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-      initText()
-
+        
+        self.navigationController?.interactivePopGestureRecognizer!.delegate = self
+        
+        initText()
     }
     
     func initText(){
-        textStorage.language = "swift"
+        languageName = "swift"
+        themeName = "Pojoaque"
+        
+        textStorage.language = languageName
         let layoutManager = NSLayoutManager()
         textStorage.addLayoutManager(layoutManager)
         
@@ -34,14 +45,16 @@ class BrowerViewController: UIViewController {
         
         
         codeTextView = UITextView(frame: view.bounds, textContainer: textContainer)
+        codeTextView?.isEditable = false
         
         codeTextView?.autocorrectionType = UITextAutocorrectionType.no
         codeTextView?.autocapitalizationType = UITextAutocapitalizationType.none
         codeTextView?.textColor = UIColor(white: 0.8, alpha: 1.0)
-        view.addSubview(codeTextView!)
+        view.insertSubview(codeTextView!, at: 0)
         
         codeTextView?.snp.makeConstraints({ (make) in
-            make.edges.equalTo(self.view)
+            make.left.bottom.right.equalTo(self.view)
+            make.top.equalTo(navigationBarBG.snp.bottom)
         })
         
         //
@@ -54,26 +67,75 @@ class BrowerViewController: UIViewController {
         updateColors()
     }
 
-
     func updateColors()
     {
         codeTextView?.backgroundColor = highlightr.theme.themeBackgroundColor
-//        navBar.barTintColor = highlightr.theme.themeBackgroundColor
-//        navBar.tintColor = invertColor(navBar.barTintColor!)
+        self.navigationBar_.barTintColor = highlightr.theme.themeBackgroundColor
+        self.navigationBar_.tintColor = invertColor(self.navigationBar_.barTintColor!)
+        
+        self.navigationBarBG.backgroundColor = highlightr.theme.themeBackgroundColor
+        
 //        languageName.textColor = navBar.tintColor
 //        themeName.textColor = navBar.tintColor.withAlphaComponent(0.5)
 //        toolBar.barTintColor = navBar.barTintColor
 //        toolBar.tintColor = navBar.tintColor
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func invertColor(_ color: UIColor) -> UIColor
+    {
+        var r:CGFloat = 0, g:CGFloat = 0, b:CGFloat = 0
+        color.getRed(&r, green: &g, blue: &b, alpha: nil)
+        return UIColor(red:1.0-r, green: 1.0-g, blue: 1.0-b, alpha: 1)
     }
-    */
+    
+    @IBAction func changeTheme(_ sender: Any) {
+        
+        let themes = highlightr.availableThemes()
+        let indexOrNil = themes.index(of: themeName!.lowercased())
+        let index = (indexOrNil == nil) ? 0 : indexOrNil!
+        
+        ActionSheetStringPicker.show(withTitle: "Pick a Theme",
+                                     rows: themes,
+                                     initialSelection: index,
+                                     doneBlock:
+            { picker, index, value in
+                let theme = value! as! String
+                self.textStorage.highlightr.setTheme(to: theme)
+                self.themeName = theme.capitalized
+                self.updateColors()
+        },
+                                     cancel: nil,
+                                     origin: self.navigationBarBG)
+    }
 
+    @IBAction func changeLanguage(_ sender: Any) {
+        let languages = highlightr.supportedLanguages()
+        let indexOrNil = languages.index(of: languageName!.lowercased())
+        let index = (indexOrNil == nil) ? 0 : indexOrNil!
+        
+        ActionSheetStringPicker.show(withTitle: "Pick a Language",
+                                     rows: languages,
+                                     initialSelection: index,
+                                     doneBlock:
+            { picker, index, value in
+                let language = value! as! String
+                self.textStorage.language = language
+                self.languageName = language.capitalized
+                let snippetPath = Bundle.main.path(forResource: "default", ofType: "txt", inDirectory: "CodeSamples/\(language)", forLocalization: nil)
+                let snippet = try! String(contentsOfFile: snippetPath!)
+                self.codeTextView?.text = snippet
+                
+        },
+                                     cancel: nil,
+                                     origin: self.navigationBarBG)
+
+    }
+    
+    @IBAction func popController(_ sender: Any) {
+       _ = navigationController?.popViewController(animated: true)
+    }
+    
+    override var prefersStatusBarHidden: Bool{
+        return false
+    }
 }

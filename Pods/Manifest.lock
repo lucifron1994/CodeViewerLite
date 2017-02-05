@@ -1,15 +1,18 @@
 PODS:
+  - ActionSheetPicker-3.0 (2.2.0)
   - Highlightr (1.1.0)
   - SnapKit (3.1.2)
 
 DEPENDENCIES:
+  - ActionSheetPicker-3.0
   - Highlightr
   - SnapKit (~> 3)
 
 SPEC CHECKSUMS:
+  ActionSheetPicker-3.0: d11a4c12c6aaf704b8a3f56d179198c99f3e41e6
   Highlightr: 519911a0a9a040d76e591f6fe58bb5177c8bdaa3
   SnapKit: 12b24f569cb7c143acc9c22b9d91b23e7b1c84a2
 
-PODFILE CHECKSUM: ac3f9868e0aaee62bd0b4fd893ec9f4afe510e95
+PODFILE CHECKSUM: 88f7bbe719a664f8e8cc65a4bf6257441caf6fda
 
 COCOAPODS: 1.1.1

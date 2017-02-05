@@ -10,12 +10,17 @@ import UIKit
 
 class HomePageViewController: UIViewController {
 
+    @IBOutlet weak var navigationBarBG: UIView!
+    @IBOutlet weak var navigationBar_: UINavigationBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
+    override var prefersStatusBarHidden: Bool{
+        return false
+    }
     
-
     /*
     // MARK: - Navigation
 
