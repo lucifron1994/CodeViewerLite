@@ -11,7 +11,6 @@ import UIKit
 class FileHelper: NSObject {
     
     func getDocumentsFile(){
-        _ = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first
-        
+        _ = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first   
     }
 }

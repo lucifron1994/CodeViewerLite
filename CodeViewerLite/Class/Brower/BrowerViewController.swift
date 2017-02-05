@@ -89,7 +89,6 @@ class BrowerViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     @IBAction func changeTheme(_ sender: Any) {
-        
         let themes = highlightr.availableThemes()
         let indexOrNil = themes.index(of: themeName!.lowercased())
         let index = (indexOrNil == nil) ? 0 : indexOrNil!
@@ -130,12 +129,17 @@ class BrowerViewController: UIViewController, UIGestureRecognizerDelegate {
                                      origin: self.navigationBarBG)
 
     }
-    
+ 
     @IBAction func popController(_ sender: Any) {
-       _ = navigationController?.popViewController(animated: true)
+        _ = navigationController?.popViewController(animated: true)
     }
     
+    // MARK: - StatusBar
     override var prefersStatusBarHidden: Bool{
         return false
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        return .lightContent
     }
 }
