@@ -1,12 +1,15 @@
 PODS:
   - Highlightr (1.1.0)
+  - SnapKit (3.1.2)
 
 DEPENDENCIES:
   - Highlightr
+  - SnapKit (~> 3)
 
 SPEC CHECKSUMS:
   Highlightr: 519911a0a9a040d76e591f6fe58bb5177c8bdaa3
+  SnapKit: 12b24f569cb7c143acc9c22b9d91b23e7b1c84a2
 
-PODFILE CHECKSUM: c88e8d8d75423379c8a5adaa4f3ba4ec16e8b659
+PODFILE CHECKSUM: ac3f9868e0aaee62bd0b4fd893ec9f4afe510e95
 
 COCOAPODS: 1.1.1

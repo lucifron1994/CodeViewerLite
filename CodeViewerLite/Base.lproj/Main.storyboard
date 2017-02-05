@@ -57,25 +57,8 @@
                     <view key="view" contentMode="scaleToFill" id="gze-hw-4s7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Write the code Change the world" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="iMZ-cI-OWt">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="iMZ-cI-OWt" firstAttribute="top" secondItem="gze-hw-4s7" secondAttribute="top" id="BbR-13-0NJ"/>
-                            <constraint firstItem="iMZ-cI-OWt" firstAttribute="leading" secondItem="gze-hw-4s7" secondAttribute="leading" id="Bvt-uR-1nr"/>
-                            <constraint firstItem="G2U-Td-68V" firstAttribute="top" secondItem="iMZ-cI-OWt" secondAttribute="bottom" id="Eun-Bz-ulv"/>
-                            <constraint firstAttribute="trailing" secondItem="iMZ-cI-OWt" secondAttribute="trailing" id="KhI-du-i4R"/>
-                        </constraints>
                     </view>
-                    <connections>
-                        <outlet property="codeTextView" destination="iMZ-cI-OWt" id="6V5-kw-byx"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9xL-SP-ZSo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
