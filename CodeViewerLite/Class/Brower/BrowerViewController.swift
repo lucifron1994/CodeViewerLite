@@ -13,13 +13,15 @@ import ActionSheetPicker_3_0
 
 class BrowerViewController: UIViewController, UIGestureRecognizerDelegate {
     
-    var codeTextView: UITextView?
+    var fileModel:FileModel?
     
-    var highlightr : Highlightr!
-    let textStorage = CodeAttributedString()
+    private var codeTextView: UITextView?
     
-    var themeName : String?
-    var languageName : String?
+    private var highlightr : Highlightr!
+    private let textStorage = CodeAttributedString()
+    
+    private var themeName : String?
+    private var languageName : String?
     
     @IBOutlet weak var navigationBarBG: UIView!
     @IBOutlet weak var navigationBar_: UINavigationBar!
@@ -27,13 +29,20 @@ class BrowerViewController: UIViewController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.interactivePopGestureRecognizer!.delegate = self
+        setUI()
         
         initText()
+        
+        print(fileModel ?? "FileModel == NULL")
+    }
+    
+    func setUI(){
+        self.navigationController?.interactivePopGestureRecognizer!.delegate = self
+        codeTextView?.alwaysBounceVertical  = true
     }
     
     func initText(){
-        languageName = "swift"
+        languageName = "objectivec"
         themeName = "Pojoaque"
         
         textStorage.language = languageName
@@ -54,11 +63,12 @@ class BrowerViewController: UIViewController, UIGestureRecognizerDelegate {
         
         codeTextView?.snp.makeConstraints({ (make) in
             make.left.bottom.right.equalTo(self.view)
-            make.top.equalTo(navigationBarBG.snp.bottom)
+            make.top.equalTo(self.view).offset(44)
         })
         
         //
-        let code = try! String.init(contentsOfFile: Bundle.main.path(forResource: "sampleCode", ofType: "txt")!)
+//        let code = try! String.init(contentsOfFile: Bundle.main.path(forResource: "sampleCode", ofType: "txt")!)
+        let code = try! String.init(contentsOfFile: (fileModel?.filePath)!)
         
         codeTextView?.text = code
         
