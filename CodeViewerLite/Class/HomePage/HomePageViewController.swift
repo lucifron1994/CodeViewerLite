@@ -10,21 +10,40 @@ import UIKit
 
 fileprivate let toBrowerSegueId = "toBrowerSegue"
 
-class HomePageViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class HomePageViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate {
 
     @IBOutlet weak var navigationBarBG: UIView!
     @IBOutlet weak var navigationBar_: UINavigationBar!
     @IBOutlet weak var tableView: UITableView!
     
-//    var currentFile:FileModel?
+    @IBOutlet weak var backButton: UIButton!
     
     var fileModels:[FileModel]?
+    var currentFolderModel:FileModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.contentInset = UIEdgeInsetsMake(44, 0, 0, 0)
         
-        fileModels = FileHelper.getDocumentsFile()
+        setUI()
+        if currentFolderModel == nil {
+            fileModels = FileHelper.getDocumentsFile()
+        }else{
+            fileModels = FileHelper.getFiles(withFolderModel: currentFolderModel!)
+        }
+    }
+    
+    private func setUI(){
+        navigationController?.interactivePopGestureRecognizer?.delegate = self
+        
+        tableView.contentInset = UIEdgeInsetsMake(44, 0, 0, 0)
+        //        tableView.tableFooterView = UIView()
+        
+        if self.navigationController?.childViewControllers.count == 1 {
+            backButton.isHidden = true
+        }else{
+            backButton.isHidden = false
+        }
+        
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -32,6 +51,10 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
             let toVC = segue.destination as? BrowerViewController
             toVC?.fileModel = sender as? FileModel
         }
+    }
+    
+    @IBAction func popVC(_ sender: Any) {
+       _ = navigationController?.popViewController(animated: true)
     }
     
     // MARK: - StatusBar
@@ -54,10 +77,11 @@ extension HomePageViewController{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
         if cell == nil {
-            cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
+            cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
         }
         let model = fileModels?[indexPath.row]
         cell?.textLabel?.text = model?.fileName
+        cell?.detailTextLabel?.text = String(describing: model?.isDirectory)
         
         return cell!
     }
@@ -65,8 +89,12 @@ extension HomePageViewController{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let model = fileModels?[indexPath.row]
-//        currentFile = model
-        
-        performSegue(withIdentifier: toBrowerSegueId, sender: model)
+        if (model?.isDirectory)! {
+            let homePage = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "homePage") as! HomePageViewController
+            homePage.currentFolderModel = model
+            self.show(homePage, sender: nil)
+        }else{
+            performSegue(withIdentifier: toBrowerSegueId, sender: model)
+        }
     }
 }

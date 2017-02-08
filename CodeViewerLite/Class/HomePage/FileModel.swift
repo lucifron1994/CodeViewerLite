@@ -11,4 +11,6 @@ import UIKit
 class FileModel: NSObject {
     var fileName:String?
     var filePath:String?
+    
+    var isDirectory:Bool?
 }
