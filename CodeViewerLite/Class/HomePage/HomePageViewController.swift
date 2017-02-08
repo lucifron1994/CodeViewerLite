@@ -13,9 +13,9 @@ fileprivate let toBrowerSegueId = "toBrowerSegue"
 class HomePageViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate {
 
     @IBOutlet weak var navigationBarBG: UIView!
-    @IBOutlet weak var navigationBar_: UINavigationBar!
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var titleButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
     
     var fileModels:[FileModel]?
@@ -27,15 +27,17 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
         setUI()
         if currentFolderModel == nil {
             fileModels = FileHelper.getDocumentsFile()
+            titleButton.setTitle("", for: .normal)
         }else{
             fileModels = FileHelper.getFiles(withFolderModel: currentFolderModel!)
+            titleButton.setTitle(currentFolderModel?.fileName, for: .normal)
         }
     }
     
     private func setUI(){
         navigationController?.interactivePopGestureRecognizer?.delegate = self
         
-        tableView.contentInset = UIEdgeInsetsMake(44, 0, 0, 0)
+//        tableView.contentInset = UIEdgeInsetsMake(44, 0, 0, 0)
         //        tableView.tableFooterView = UIView()
         
         if self.navigationController?.childViewControllers.count == 1 {
@@ -54,7 +56,7 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     @IBAction func popVC(_ sender: Any) {
-       _ = navigationController?.popViewController(animated: true)
+        _ = navigationController?.popViewController(animated: true)
     }
     
     // MARK: - StatusBar
