@@ -18,7 +18,10 @@ class HomePageFileCell: UITableViewCell {
                 self.imageView?.image = #imageLiteral(resourceName: "folder")
             }else if fileModel?.fileType == "swift" {
                 self.imageView?.image = #imageLiteral(resourceName: "swift_icon")
-                
+            }else if fileModel?.fileType == "h"{
+                self.imageView?.image = #imageLiteral(resourceName: "h_icon")
+            }else if fileModel?.fileType == "m"{
+                self.imageView?.image = #imageLiteral(resourceName: "m_icon")
             }else{
                 self.imageView?.image = #imageLiteral(resourceName: "fileIcon")
             }
