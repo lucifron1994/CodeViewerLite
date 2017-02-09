@@ -11,7 +11,7 @@ import Highlightr
 import SnapKit
 import ActionSheetPicker_3_0
 
-class BrowerViewController: UIViewController, UIGestureRecognizerDelegate {
+class BrowerViewController: BaseViewController {
     
     var fileModel:FileModel?
     
@@ -23,8 +23,8 @@ class BrowerViewController: UIViewController, UIGestureRecognizerDelegate {
     private var themeName : String?
     private var languageName : String?
     
-    @IBOutlet weak var navigationBarBG: UIView!
-    @IBOutlet weak var navigationBar_: UINavigationBar!
+//    @IBOutlet weak var navigationBarBG: UIView!
+//    @IBOutlet weak var navigationBar_: UINavigationBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,8 +37,6 @@ class BrowerViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func setUI(){
-        self.navigationController?.interactivePopGestureRecognizer!.delegate = self
-        codeTextView?.alwaysBounceVertical  = true
     }
     
     func initText(){
@@ -59,11 +57,11 @@ class BrowerViewController: UIViewController, UIGestureRecognizerDelegate {
         codeTextView?.autocorrectionType = UITextAutocorrectionType.no
         codeTextView?.autocapitalizationType = UITextAutocapitalizationType.none
         codeTextView?.textColor = UIColor(white: 0.8, alpha: 1.0)
+        codeTextView?.alwaysBounceVertical  = true
         view.insertSubview(codeTextView!, at: 0)
         
         codeTextView?.snp.makeConstraints({ (make) in
-            make.left.bottom.right.equalTo(self.view)
-            make.top.equalTo(self.view).offset(44)
+            make.edges.equalTo(self.view)
         })
         
         //
@@ -80,10 +78,10 @@ class BrowerViewController: UIViewController, UIGestureRecognizerDelegate {
     func updateColors()
     {
         codeTextView?.backgroundColor = highlightr.theme.themeBackgroundColor
-        self.navigationBar_.barTintColor = highlightr.theme.themeBackgroundColor
-        self.navigationBar_.tintColor = invertColor(self.navigationBar_.barTintColor!)
-        
-        self.navigationBarBG.backgroundColor = highlightr.theme.themeBackgroundColor
+//        self.navigationBar_.barTintColor = highlightr.theme.themeBackgroundColor
+//        self.navigationBar_.tintColor = invertColor(self.navigationBar_.barTintColor!)
+//        
+//        self.navigationBarBG.backgroundColor = highlightr.theme.themeBackgroundColor
         
 //        languageName.textColor = navBar.tintColor
 //        themeName.textColor = navBar.tintColor.withAlphaComponent(0.5)
@@ -97,7 +95,6 @@ class BrowerViewController: UIViewController, UIGestureRecognizerDelegate {
         color.getRed(&r, green: &g, blue: &b, alpha: nil)
         return UIColor(red:1.0-r, green: 1.0-g, blue: 1.0-b, alpha: 1)
     }
-    
     @IBAction func changeTheme(_ sender: Any) {
         let themes = highlightr.availableThemes()
         let indexOrNil = themes.index(of: themeName!.lowercased())
@@ -114,7 +111,7 @@ class BrowerViewController: UIViewController, UIGestureRecognizerDelegate {
                 self.updateColors()
         },
                                      cancel: nil,
-                                     origin: self.navigationBarBG)
+                                     origin: self.navigationController?.navigationBar)
     }
 
     @IBAction func changeLanguage(_ sender: Any) {
@@ -136,8 +133,7 @@ class BrowerViewController: UIViewController, UIGestureRecognizerDelegate {
                 
         },
                                      cancel: nil,
-                                     origin: self.navigationBarBG)
-
+                                     origin: self.navigationController?.navigationBar)
     }
  
     @IBAction func popController(_ sender: Any) {

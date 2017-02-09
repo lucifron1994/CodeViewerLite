@@ -20,6 +20,14 @@ class FileHelper: NSObject {
         return getFiles(withPath: model.filePath!)
     }
     
+    class func deleteFile(withModel model : FileModel){
+        let fileManager = FileManager.default
+//        do {
+            try! fileManager.removeItem(atPath: model.filePath!)
+//        }
+    }
+    
+    // MARK - Private
     private class func getFiles(withPath path:String) -> [FileModel]{
         
         let fileManager = FileManager.default

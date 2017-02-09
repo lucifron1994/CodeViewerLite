@@ -10,12 +10,10 @@ import UIKit
 
 fileprivate let toBrowerSegueId = "toBrowerSegue"
 
-class HomePageViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate {
-
-    @IBOutlet weak var navigationBarBG: UIView!
+class HomePageViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
+    
     @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var titleButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
     
     var fileModels:[FileModel]?
@@ -25,27 +23,31 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
         super.viewDidLoad()
         
         setUI()
+        
+        setData()
+        
+    }
+    
+    private func setData(){
         if currentFolderModel == nil {
             fileModels = FileHelper.getDocumentsFile()
-            titleButton.setTitle("", for: .normal)
+            title = ""
         }else{
             fileModels = FileHelper.getFiles(withFolderModel: currentFolderModel!)
-            titleButton.setTitle(currentFolderModel?.fileName, for: .normal)
+            title = currentFolderModel?.fileName
         }
     }
     
     private func setUI(){
-        navigationController?.interactivePopGestureRecognizer?.delegate = self
+        let refreshControl = UIRefreshControl()
+        refreshControl .addTarget(self, action: #selector(HomePageViewController.reloadData), for: .valueChanged)
         
-//        tableView.contentInset = UIEdgeInsetsMake(44, 0, 0, 0)
-        //        tableView.tableFooterView = UIView()
-        
-        if self.navigationController?.childViewControllers.count == 1 {
-            backButton.isHidden = true
-        }else{
-            backButton.isHidden = false
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            // Fallback on earlier versions
+            tableView.addSubview(refreshControl)
         }
-        
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -53,6 +55,12 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
             let toVC = segue.destination as? BrowerViewController
             toVC?.fileModel = sender as? FileModel
         }
+    }
+    
+    func reloadData(sender : UIRefreshControl){
+        setData()
+        tableView.reloadData()
+        sender.endRefreshing()
     }
     
     @IBAction func popVC(_ sender: Any) {
@@ -90,6 +98,8 @@ extension HomePageViewController{
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
         let model = fileModels?[indexPath.row]
         if (model?.isDirectory)! {
             let homePage = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "homePage") as! HomePageViewController
@@ -98,5 +108,16 @@ extension HomePageViewController{
         }else{
             performSegue(withIdentifier: toBrowerSegueId, sender: model)
         }
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+            
+            let model = self.fileModels?[indexPath.row]
+//            FileHelper.deleteFile(withModel: model!)
+            self.fileModels?.remove(at: indexPath.row)
+            self.tableView .deleteRows(at: [indexPath], with: .left)
+        }
+        return [deleteAction]
     }
 }
