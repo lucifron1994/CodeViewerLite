@@ -9,6 +9,7 @@
 import UIKit
 
 fileprivate let toBrowerSegueId = "toBrowerSegue"
+fileprivate let cellID = "fileCell"
 
 class HomePageViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -39,9 +40,11 @@ class HomePageViewController: BaseViewController, UITableViewDataSource, UITable
     }
     
     private func setUI(){
+        
+        tableView.register(HomePageFileCell.self, forCellReuseIdentifier: cellID)
+        
         let refreshControl = UIRefreshControl()
         refreshControl .addTarget(self, action: #selector(HomePageViewController.reloadData), for: .valueChanged)
-        
         if #available(iOS 10.0, *) {
             tableView.refreshControl = refreshControl
         } else {
@@ -85,15 +88,12 @@ extension HomePageViewController{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-        if cell == nil {
-            cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
-        }
-        let model = fileModels?[indexPath.row]
-        cell?.textLabel?.text = model?.fileName
-        cell?.detailTextLabel?.text = String(describing: model?.isDirectory)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellID) as! HomePageFileCell
         
-        return cell!
+        let model = fileModels?[indexPath.row]
+        cell.fileModel = model
+        
+        return cell
     }
     
     

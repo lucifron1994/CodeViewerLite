@@ -17,13 +17,13 @@ class FileHelper: NSObject {
     }
     
     class func getFiles(withFolderModel model:FileModel) -> [FileModel]{
-        return getFiles(withPath: model.filePath!)
+        return getFiles(withPath: model.filePath)
     }
     
     class func deleteFile(withModel model : FileModel){
         let fileManager = FileManager.default
 //        do {
-            try! fileManager.removeItem(atPath: model.filePath!)
+            try! fileManager.removeItem(atPath: model.filePath)
 //        }
     }
     
@@ -41,13 +41,14 @@ class FileHelper: NSObject {
                 continue
             }
             
-            let fileModel = FileModel()
-            fileModel.fileName = item
-            fileModel.filePath = path.appending("/"+item)
-            //            print("Model : " + fileModel.fileName! + fileModel.filePath!);
+            let filePath = path.appending("/"+item)
+            
             var isDir : ObjCBool = false
-            if fileManager.fileExists(atPath: fileModel.filePath!, isDirectory: &isDir){
-                fileModel.isDirectory = isDir.boolValue
+            if fileManager.fileExists(atPath: filePath, isDirectory: &isDir){
+                let fileURL = URL(string: item)
+                let fileType = (fileURL?.lastPathComponent==nil) ? fileURL?.lastPathComponent : ""
+                
+                let fileModel = FileModel(fileName: item, filePath:filePath , fileType:fileType! , isDirectory: isDir.boolValue)
                 fileModels.append(fileModel)
             }
             

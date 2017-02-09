@@ -11,6 +11,7 @@
 		3E9296161E4C1EA500408FA8 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9296151E4C1EA500408FA8 /* BaseViewController.swift */; };
 		3E9296181E4C256600408FA8 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9296171E4C256600408FA8 /* Constant.swift */; };
 		3E92961B1E4C260800408FA8 /* SetttingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E92961A1E4C260800408FA8 /* SetttingHelper.swift */; };
+		3E9296201E4C41C600408FA8 /* HomePageFileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E92961F1E4C41C600408FA8 /* HomePageFileCell.swift */; };
 		3EAAC7DD1E334C66008DA833 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAAC7DC1E334C66008DA833 /* AppDelegate.swift */; };
 		3EAAC7E21E334C66008DA833 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EAAC7E01E334C66008DA833 /* Main.storyboard */; };
 		3EAAC7E41E334C66008DA833 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EAAC7E31E334C66008DA833 /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 		3E9296151E4C1EA500408FA8 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseViewController.swift; path = ../Brower/BaseViewController.swift; sourceTree = "<group>"; };
 		3E9296171E4C256600408FA8 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constant.swift; path = ../Constant.swift; sourceTree = "<group>"; };
 		3E92961A1E4C260800408FA8 /* SetttingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetttingHelper.swift; sourceTree = "<group>"; };
+		3E92961F1E4C41C600408FA8 /* HomePageFileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageFileCell.swift; sourceTree = "<group>"; };
 		3EAAC7D91E334C66008DA833 /* CodeViewerLite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeViewerLite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EAAC7DC1E334C66008DA833 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3EAAC7E11E334C66008DA833 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -67,6 +69,32 @@
 				3EAAC7F61E335155008DA833 /* FileHelper.swift */,
 			);
 			name = Helper;
+			sourceTree = "<group>";
+		};
+		3E92961C1E4C419D00408FA8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3E9296151E4C1EA500408FA8 /* BaseViewController.swift */,
+				3EAAC7F21E334E52008DA833 /* HomePageViewController.swift */,
+				3E9296131E4C1D5000408FA8 /* RootNavViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		3E92961D1E4C41A300408FA8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3EFE8B401E481805002B4937 /* FileModel.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		3E92961E1E4C41A800408FA8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3E92961F1E4C41C600408FA8 /* HomePageFileCell.swift */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		3EAAC7D01E334C66008DA833 = {
@@ -130,10 +158,9 @@
 		3EAAC7F11E334E3D008DA833 /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
-				3E9296151E4C1EA500408FA8 /* BaseViewController.swift */,
-				3EAAC7F21E334E52008DA833 /* HomePageViewController.swift */,
-				3E9296131E4C1D5000408FA8 /* RootNavViewController.swift */,
-				3EFE8B401E481805002B4937 /* FileModel.swift */,
+				3E92961E1E4C41A800408FA8 /* View */,
+				3E92961C1E4C419D00408FA8 /* Controller */,
+				3E92961D1E4C41A300408FA8 /* Model */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -285,6 +312,7 @@
 				3E9296141E4C1D5000408FA8 /* RootNavViewController.swift in Sources */,
 				3E9296181E4C256600408FA8 /* Constant.swift in Sources */,
 				3EFE8B411E481805002B4937 /* FileModel.swift in Sources */,
+				3E9296201E4C41C600408FA8 /* HomePageFileCell.swift in Sources */,
 				3EAAC7F51E334EDA008DA833 /* BrowerViewController.swift in Sources */,
 				3E9296161E4C1EA500408FA8 /* BaseViewController.swift in Sources */,
 				3E92961B1E4C260800408FA8 /* SetttingHelper.swift in Sources */,
