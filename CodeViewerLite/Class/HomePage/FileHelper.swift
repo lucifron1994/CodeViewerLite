@@ -45,8 +45,8 @@ class FileHelper: NSObject {
             
             var isDir : ObjCBool = false
             if fileManager.fileExists(atPath: filePath, isDirectory: &isDir){
-                let fileURL = URL(string: item)
-                let fileType = (fileURL?.lastPathComponent==nil) ? fileURL?.lastPathComponent : ""
+                let fileURL = URL(string: filePath)
+                let fileType = (fileURL?.pathExtension != nil) ? fileURL?.pathExtension.lowercased() : ""
                 
                 let fileModel = FileModel(fileName: item, filePath:filePath , fileType:fileType! , isDirectory: isDir.boolValue)
                 fileModels.append(fileModel)

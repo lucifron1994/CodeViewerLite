@@ -13,10 +13,12 @@ class HomePageFileCell: UITableViewCell {
     var fileModel:FileModel?{
         didSet{
             self.textLabel?.text = fileModel?.fileName
-            self.detailTextLabel?.text = String(describing: fileModel?.isDirectory) + " " + (fileModel?.fileType)!
             
             if (fileModel?.isDirectory)! {
                 self.imageView?.image = #imageLiteral(resourceName: "folder")
+            }else if fileModel?.fileType == "swift" {
+                self.imageView?.image = #imageLiteral(resourceName: "swift_icon")
+                
             }else{
                 self.imageView?.image = #imageLiteral(resourceName: "fileIcon")
             }

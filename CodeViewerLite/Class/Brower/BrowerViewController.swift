@@ -16,6 +16,7 @@ class BrowerViewController: BaseViewController {
     var fileModel:FileModel?
     
     private var codeTextView: UITextView?
+    @IBOutlet weak var titleButton: UIButton!
     
     private var highlightr : Highlightr!
     private let textStorage = CodeAttributedString()
@@ -127,6 +128,7 @@ class BrowerViewController: BaseViewController {
                 let language = value! as! String
                 self.textStorage.language = language
                 self.languageName = language.capitalized
+                self.titleButton.setTitle(language, for: .normal)
                 let snippetPath = Bundle.main.path(forResource: "default", ofType: "txt", inDirectory: "CodeSamples/\(language)", forLocalization: nil)
                 let snippet = try! String(contentsOfFile: snippetPath!)
                 self.codeTextView?.text = snippet
