@@ -21,11 +21,9 @@ class BrowerViewController: BaseViewController {
     private var highlightr : Highlightr!
     private let textStorage = CodeAttributedString()
     
-    private var themeName : String?
-    private var languageName : String?
-    
-//    @IBOutlet weak var navigationBarBG: UIView!
-//    @IBOutlet weak var navigationBar_: UINavigationBar!
+    private var themeName : String = ""
+    private var languageName : String = ""
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,10 +39,15 @@ class BrowerViewController: BaseViewController {
     }
     
     func initText(){
-        languageName = "objectivec"
-        themeName = "Pojoaque"
+        languageName = SettingHelper.shareHelper.language!
+        themeName = SettingHelper.shareHelper.theme!
+        
+        titleButton.setTitle(languageName, for: .normal)
+        
         
         textStorage.language = languageName
+        textStorage.highlightr.setTheme(to: themeName)
+        
         let layoutManager = NSLayoutManager()
         textStorage.addLayoutManager(layoutManager)
         
@@ -72,7 +75,7 @@ class BrowerViewController: BaseViewController {
         codeTextView?.text = code
         
         highlightr = textStorage.highlightr
-        
+
         updateColors()
     }
 
@@ -98,7 +101,7 @@ class BrowerViewController: BaseViewController {
     }
     @IBAction func changeTheme(_ sender: Any) {
         let themes = highlightr.availableThemes()
-        let indexOrNil = themes.index(of: themeName!.lowercased())
+        let indexOrNil = themes.index(of: themeName.lowercased())
         let index = (indexOrNil == nil) ? 0 : indexOrNil!
         
         ActionSheetStringPicker.show(withTitle: "Pick a Theme",
@@ -109,6 +112,7 @@ class BrowerViewController: BaseViewController {
                 let theme = value! as! String
                 self.textStorage.highlightr.setTheme(to: theme)
                 self.themeName = theme.capitalized
+                SettingHelper.shareHelper.theme = theme
                 self.updateColors()
         },
                                      cancel: nil,
@@ -117,7 +121,7 @@ class BrowerViewController: BaseViewController {
 
     @IBAction func changeLanguage(_ sender: Any) {
         let languages = highlightr.supportedLanguages()
-        let indexOrNil = languages.index(of: languageName!.lowercased())
+        let indexOrNil = languages.index(of: languageName.lowercased())
         let index = (indexOrNil == nil) ? 0 : indexOrNil!
         
         ActionSheetStringPicker.show(withTitle: "Pick a Language",
@@ -129,6 +133,8 @@ class BrowerViewController: BaseViewController {
                 self.textStorage.language = language
                 self.languageName = language.capitalized
                 self.titleButton.setTitle(language, for: .normal)
+                SettingHelper.shareHelper.language = language
+                
                 let snippetPath = Bundle.main.path(forResource: "default", ofType: "txt", inDirectory: "CodeSamples/\(language)", forLocalization: nil)
                 let snippet = try! String(contentsOfFile: snippetPath!)
                 self.codeTextView?.text = snippet

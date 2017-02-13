@@ -10,7 +10,7 @@
 		3E9296141E4C1D5000408FA8 /* RootNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9296131E4C1D5000408FA8 /* RootNavViewController.swift */; };
 		3E9296161E4C1EA500408FA8 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9296151E4C1EA500408FA8 /* BaseViewController.swift */; };
 		3E9296181E4C256600408FA8 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9296171E4C256600408FA8 /* Constant.swift */; };
-		3E92961B1E4C260800408FA8 /* SetttingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E92961A1E4C260800408FA8 /* SetttingHelper.swift */; };
+		3E92961B1E4C260800408FA8 /* SettingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E92961A1E4C260800408FA8 /* SettingHelper.swift */; };
 		3E9296201E4C41C600408FA8 /* HomePageFileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E92961F1E4C41C600408FA8 /* HomePageFileCell.swift */; };
 		3EAAC7DD1E334C66008DA833 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAAC7DC1E334C66008DA833 /* AppDelegate.swift */; };
 		3EAAC7E21E334C66008DA833 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EAAC7E01E334C66008DA833 /* Main.storyboard */; };
@@ -19,7 +19,7 @@
 		3EAAC7F31E334E52008DA833 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAAC7F21E334E52008DA833 /* HomePageViewController.swift */; };
 		3EAAC7F51E334EDA008DA833 /* BrowerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAAC7F41E334EDA008DA833 /* BrowerViewController.swift */; };
 		3EAAC7F71E335155008DA833 /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAAC7F61E335155008DA833 /* FileHelper.swift */; };
-		3EFE8AF71E46D4D7002B4937 /* Demo.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3EFE8AF61E46D4D7002B4937 /* Demo.txt */; };
+		3EFE8AF71E46D4D7002B4937 /* Welcome.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3EFE8AF61E46D4D7002B4937 /* Welcome.txt */; };
 		3EFE8AF91E4704BB002B4937 /* CodeSamples in Resources */ = {isa = PBXBuildFile; fileRef = 3EFE8AF81E4704BB002B4937 /* CodeSamples */; };
 		3EFE8B411E481805002B4937 /* FileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFE8B401E481805002B4937 /* FileModel.swift */; };
 		7A2BA0ADD5227E54C004E649 /* Pods_CodeViewerLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1C21750F94FE647E4713E81 /* Pods_CodeViewerLite.framework */; };
@@ -30,7 +30,7 @@
 		3E9296131E4C1D5000408FA8 /* RootNavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootNavViewController.swift; sourceTree = "<group>"; };
 		3E9296151E4C1EA500408FA8 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseViewController.swift; path = ../Brower/BaseViewController.swift; sourceTree = "<group>"; };
 		3E9296171E4C256600408FA8 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constant.swift; path = ../Constant.swift; sourceTree = "<group>"; };
-		3E92961A1E4C260800408FA8 /* SetttingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetttingHelper.swift; sourceTree = "<group>"; };
+		3E92961A1E4C260800408FA8 /* SettingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingHelper.swift; sourceTree = "<group>"; };
 		3E92961F1E4C41C600408FA8 /* HomePageFileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageFileCell.swift; sourceTree = "<group>"; };
 		3EAAC7D91E334C66008DA833 /* CodeViewerLite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeViewerLite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EAAC7DC1E334C66008DA833 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -41,7 +41,7 @@
 		3EAAC7F21E334E52008DA833 /* HomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		3EAAC7F41E334EDA008DA833 /* BrowerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowerViewController.swift; sourceTree = "<group>"; };
 		3EAAC7F61E335155008DA833 /* FileHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileHelper.swift; path = HomePage/FileHelper.swift; sourceTree = "<group>"; };
-		3EFE8AF61E46D4D7002B4937 /* Demo.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Demo.txt; path = ../../Demo.txt; sourceTree = "<group>"; };
+		3EFE8AF61E46D4D7002B4937 /* Welcome.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Welcome.txt; path = ../../Welcome.txt; sourceTree = "<group>"; };
 		3EFE8AF81E4704BB002B4937 /* CodeSamples */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CodeSamples; sourceTree = "<group>"; };
 		3EFE8B401E481805002B4937 /* FileModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileModel.swift; sourceTree = "<group>"; };
 		A248E6C52A0FF4FB1399C6CF /* Pods-CodeViewerLite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeViewerLite.release.xcconfig"; path = "Pods/Target Support Files/Pods-CodeViewerLite/Pods-CodeViewerLite.release.xcconfig"; sourceTree = "<group>"; };
@@ -63,9 +63,9 @@
 		3E9296191E4C25B500408FA8 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				3EFE8AF61E46D4D7002B4937 /* Demo.txt */,
+				3EFE8AF61E46D4D7002B4937 /* Welcome.txt */,
 				3E9296171E4C256600408FA8 /* Constant.swift */,
-				3E92961A1E4C260800408FA8 /* SetttingHelper.swift */,
+				3E92961A1E4C260800408FA8 /* SettingHelper.swift */,
 				3EAAC7F61E335155008DA833 /* FileHelper.swift */,
 			);
 			name = Helper;
@@ -245,7 +245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3EAAC7E71E334C66008DA833 /* LaunchScreen.storyboard in Resources */,
-				3EFE8AF71E46D4D7002B4937 /* Demo.txt in Resources */,
+				3EFE8AF71E46D4D7002B4937 /* Welcome.txt in Resources */,
 				3EFE8AF91E4704BB002B4937 /* CodeSamples in Resources */,
 				3EAAC7E41E334C66008DA833 /* Assets.xcassets in Resources */,
 				3EAAC7E21E334C66008DA833 /* Main.storyboard in Resources */,
@@ -315,7 +315,7 @@
 				3E9296201E4C41C600408FA8 /* HomePageFileCell.swift in Sources */,
 				3EAAC7F51E334EDA008DA833 /* BrowerViewController.swift in Sources */,
 				3E9296161E4C1EA500408FA8 /* BaseViewController.swift in Sources */,
-				3E92961B1E4C260800408FA8 /* SetttingHelper.swift in Sources */,
+				3E92961B1E4C260800408FA8 /* SettingHelper.swift in Sources */,
 				3EAAC7F71E335155008DA833 /* FileHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
