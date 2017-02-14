@@ -114,7 +114,7 @@ extension HomePageViewController{
         let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
             
             let model = self.fileModels?[indexPath.row]
-//            FileHelper.deleteFile(withModel: model!)
+            FileHelper.deleteFile(withModel: model!)
             self.fileModels?.remove(at: indexPath.row)
             self.tableView .deleteRows(at: [indexPath], with: .left)
         }

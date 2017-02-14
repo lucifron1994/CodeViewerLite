@@ -59,27 +59,41 @@
                     <view key="view" contentMode="scaleToFill" id="gze-hw-4s7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="pl1-Oc-9Rh">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem width="25" style="plain" systemItem="fixedSpace" id="UYq-0L-A2E"/>
+                                    <barButtonItem title="Language" id="SaG-bK-iyf">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="changeLanguage:" destination="13J-cP-oC4" id="ht5-uk-hyS"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="InL-5u-1gq"/>
+                                    <barButtonItem title="Theme" id="bTh-GD-d4Z">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="changeTheme:" destination="13J-cP-oC4" id="Nk3-g4-LYU"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="25" style="plain" systemItem="fixedSpace" id="Wms-LU-1fC"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="pl1-Oc-9Rh" secondAttribute="trailing" id="A9Q-jO-YfD"/>
+                            <constraint firstItem="pl1-Oc-9Rh" firstAttribute="leading" secondItem="gze-hw-4s7" secondAttribute="leading" id="Jy8-PT-SCt"/>
+                            <constraint firstItem="G2U-Td-68V" firstAttribute="top" secondItem="pl1-Oc-9Rh" secondAttribute="bottom" id="ePc-86-KSG"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="9R6-CP-Wyg">
                         <nil key="title"/>
-                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="iKW-Wc-cr6">
-                            <rect key="frame" x="112.5" y="7" width="150" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                            <state key="normal" title="Language"/>
-                            <connections>
-                                <action selector="changeLanguage:" destination="13J-cP-oC4" eventType="touchUpInside" id="cDZ-2y-LvP"/>
-                            </connections>
-                        </button>
-                        <barButtonItem key="rightBarButtonItem" title="Theme" id="nWV-qE-xeG">
-                            <connections>
-                                <action selector="changeTheme:" destination="13J-cP-oC4" id="RAb-fu-lHc"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="titleButton" destination="iKW-Wc-cr6" id="c9H-EU-pDt"/>
+                        <outlet property="bottomToolBar" destination="pl1-Oc-9Rh" id="JRI-TU-5WB"/>
+                        <outlet property="languageButton" destination="SaG-bK-iyf" id="ccN-0S-Lma"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9xL-SP-ZSo" userLabel="First Responder" sceneMemberID="firstResponder"/>

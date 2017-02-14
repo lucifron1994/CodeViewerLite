@@ -11,12 +11,14 @@ import Highlightr
 import SnapKit
 import ActionSheetPicker_3_0
 
-class BrowerViewController: BaseViewController {
+class BrowerViewController: BaseViewController, UITextViewDelegate {
     
     var fileModel:FileModel?
     
     private var codeTextView: UITextView?
-    @IBOutlet weak var titleButton: UIButton!
+    
+    @IBOutlet weak var languageButton: UIBarButtonItem!
+    @IBOutlet weak var bottomToolBar: UIToolbar!
     
     private var highlightr : Highlightr!
     private let textStorage = CodeAttributedString()
@@ -36,14 +38,15 @@ class BrowerViewController: BaseViewController {
     }
     
     func setUI(){
+        title = fileModel?.fileName
     }
     
     func initText(){
         languageName = SettingHelper.shareHelper.language!
         themeName = SettingHelper.shareHelper.theme!
         
-        titleButton.setTitle(languageName, for: .normal)
-        
+        languageButton.title = languageName
+
         
         textStorage.language = languageName
         textStorage.highlightr.setTheme(to: themeName)
@@ -57,6 +60,7 @@ class BrowerViewController: BaseViewController {
         
         codeTextView = UITextView(frame: view.bounds, textContainer: textContainer)
         codeTextView?.isEditable = false
+        codeTextView?.delegate = self
         
         codeTextView?.autocorrectionType = UITextAutocorrectionType.no
         codeTextView?.autocapitalizationType = UITextAutocapitalizationType.none
@@ -99,6 +103,7 @@ class BrowerViewController: BaseViewController {
         color.getRed(&r, green: &g, blue: &b, alpha: nil)
         return UIColor(red:1.0-r, green: 1.0-g, blue: 1.0-b, alpha: 1)
     }
+
     @IBAction func changeTheme(_ sender: Any) {
         let themes = highlightr.availableThemes()
         let indexOrNil = themes.index(of: themeName.lowercased())
@@ -118,7 +123,8 @@ class BrowerViewController: BaseViewController {
                                      cancel: nil,
                                      origin: self.navigationController?.navigationBar)
     }
-
+    
+    
     @IBAction func changeLanguage(_ sender: Any) {
         let languages = highlightr.supportedLanguages()
         let indexOrNil = languages.index(of: languageName.lowercased())
@@ -132,7 +138,9 @@ class BrowerViewController: BaseViewController {
                 let language = value! as! String
                 self.textStorage.language = language
                 self.languageName = language.capitalized
-                self.titleButton.setTitle(language, for: .normal)
+                
+                self.languageButton.title = self.languageName
+                
                 SettingHelper.shareHelper.language = language
                 
                 let snippetPath = Bundle.main.path(forResource: "default", ofType: "txt", inDirectory: "CodeSamples/\(language)", forLocalization: nil)
@@ -143,11 +151,8 @@ class BrowerViewController: BaseViewController {
                                      cancel: nil,
                                      origin: self.navigationController?.navigationBar)
     }
- 
-    @IBAction func popController(_ sender: Any) {
-        _ = navigationController?.popViewController(animated: true)
-    }
     
+ 
     // MARK: - StatusBar
     override var prefersStatusBarHidden: Bool{
         return false
@@ -155,5 +160,12 @@ class BrowerViewController: BaseViewController {
     
     override var preferredStatusBarStyle: UIStatusBarStyle{
         return .lightContent
+    }
+}
+
+extension BrowerViewController {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offset = scrollView.contentOffset.y
+        print(offset)
     }
 }
