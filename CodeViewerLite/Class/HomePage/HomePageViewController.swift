@@ -32,7 +32,7 @@ class HomePageViewController: BaseViewController, UITableViewDataSource, UITable
     private func setData(){
         if currentFolderModel == nil {
             fileModels = FileHelper.getDocumentsFile()
-            title = ""
+            title = "Document"
         }else{
             fileModels = FileHelper.getFiles(withFolderModel: currentFolderModel!)
             title = currentFolderModel?.fileName
@@ -61,11 +61,16 @@ class HomePageViewController: BaseViewController, UITableViewDataSource, UITable
     }
     
     func reloadData(sender : UIRefreshControl){
-        setData()
-        tableView.reloadData()
-        sender.endRefreshing()
+      
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.setData()
+            self.tableView.reloadData()
+            sender.endRefreshing()
+        }
+        
     }
-    
+        
+        
     @IBAction func popVC(_ sender: Any) {
         _ = navigationController?.popViewController(animated: true)
     }

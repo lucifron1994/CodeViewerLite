@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home Page View Controller-->
+        <!--Doucument-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="homePage" id="BYZ-38-t0r" customClass="HomePageViewController" customModule="CodeViewerLite" customModuleProvider="target" sceneMemberID="viewController">
@@ -38,7 +38,7 @@
                             <constraint firstItem="QRI-Kp-ffq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="wpY-CI-bv1"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="JGL-f5-Uiw"/>
+                    <navigationItem key="navigationItem" title="Doucument" id="JGL-f5-Uiw"/>
                     <connections>
                         <outlet property="tableView" destination="QRI-Kp-ffq" id="PSe-3H-2ND"/>
                         <segue destination="13J-cP-oC4" kind="show" identifier="toBrowerSegue" id="x56-EN-49F"/>
@@ -46,7 +46,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="551" y="163"/>
+            <point key="canvasLocation" x="628" y="163"/>
         </scene>
         <!--Brower View Controller-->
         <scene sceneID="UBQ-NZ-kqm">
@@ -98,7 +98,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9xL-SP-ZSo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1343" y="163"/>
+            <point key="canvasLocation" x="1490" y="162"/>
         </scene>
         <!--Root Nav View Controller-->
         <scene sceneID="O7a-6C-MHp">

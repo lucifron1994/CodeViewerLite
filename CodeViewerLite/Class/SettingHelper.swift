@@ -24,7 +24,6 @@ final class SettingHelper: NSObject {
             }else{
                 return "Pojoaque"
             }
-          
         }
        
         set{
