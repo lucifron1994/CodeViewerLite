@@ -19,6 +19,7 @@ class BrowerViewController: BaseViewController, UITextViewDelegate {
     
     @IBOutlet weak var languageButton: UIBarButtonItem!
     @IBOutlet weak var bottomToolBar: UIToolbar!
+    @IBOutlet weak var sizeStepper: UIStepper!
     
     private var highlightr : Highlightr!
     private let textStorage = CodeAttributedString()
@@ -26,6 +27,10 @@ class BrowerViewController: BaseViewController, UITextViewDelegate {
     private var themeName : String = ""
     private var languageName : String = ""
     private let fontSize = [10,12,14,16,18]
+    
+    private var fileCode : String = ""
+    
+    private let supportLanguages = ["javascript","swift","objectivec"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +56,12 @@ class BrowerViewController: BaseViewController, UITextViewDelegate {
         textStorage.language = languageName
         textStorage.highlightr.setTheme(to: themeName)
         
+        //初始字号
+        let fontIndex = SettingHelper.shareHelper.fontSizeIndex!
+        textStorage.highlightr.theme.codeFont = RPFont(name: "Courier", size: CGFloat(fontSize[fontIndex]))
+        sizeStepper.value = Double(fontIndex)
+        
+        
         let layoutManager = NSLayoutManager()
         textStorage.addLayoutManager(layoutManager)
         
@@ -69,13 +80,14 @@ class BrowerViewController: BaseViewController, UITextViewDelegate {
         view.insertSubview(codeTextView!, at: 0)
         
         codeTextView?.snp.makeConstraints({ (make) in
-            make.edges.equalTo(self.view)
+            make.top.left.right.equalTo(self.view)
+            make.bottom.equalTo(self.view.snp.bottom).offset(-44)
         })
         
         //
-        let code = try! String.init(contentsOfFile: (fileModel?.filePath)!)
+        fileCode = try! String.init(contentsOfFile: (fileModel?.filePath)!)
         
-        codeTextView?.text = code
+        codeTextView?.text = fileCode
         
         highlightr = textStorage.highlightr
 
@@ -94,7 +106,6 @@ class BrowerViewController: BaseViewController, UITextViewDelegate {
 //        themeName.textColor = navBar.tintColor.withAlphaComponent(0.5)
 //        toolBar.barTintColor = navBar.barTintColor
 //        toolBar.tintColor = navBar.tintColor
-        
     }
     
     func invertColor(_ color: UIColor) -> UIColor
@@ -106,6 +117,7 @@ class BrowerViewController: BaseViewController, UITextViewDelegate {
 
     @IBAction func changeTheme(_ sender: Any) {
         let themes = highlightr.availableThemes()
+        
         let indexOrNil = themes.index(of: themeName.lowercased())
         let index = (indexOrNil == nil) ? 0 : indexOrNil!
         
@@ -118,7 +130,6 @@ class BrowerViewController: BaseViewController, UITextViewDelegate {
                 self.textStorage.highlightr.setTheme(to: theme)
                 self.themeName = theme.capitalized
                 SettingHelper.shareHelper.theme = theme
-                
                 self.updateColors()
         },
                                      cancel: nil,
@@ -132,7 +143,7 @@ class BrowerViewController: BaseViewController, UITextViewDelegate {
         let index = (indexOrNil == nil) ? 0 : indexOrNil!
         
         ActionSheetStringPicker.show(withTitle: "Pick a Language",
-                                     rows: languages,
+                                     rows: supportLanguages,
                                      initialSelection: index,
                                      doneBlock:
             { picker, index, value in
@@ -143,10 +154,10 @@ class BrowerViewController: BaseViewController, UITextViewDelegate {
                 self.languageButton.title = self.languageName
                 
                 SettingHelper.shareHelper.language = language
-                
-                let snippetPath = Bundle.main.path(forResource: "default", ofType: "txt", inDirectory: "CodeSamples/\(language)", forLocalization: nil)
-                let snippet = try! String(contentsOfFile: snippetPath!)
-                self.codeTextView?.text = snippet
+                do {
+                    let snippet = try? String(contentsOfFile: (self.fileModel?.filePath)!)
+                    self.codeTextView?.text = snippet
+                }
                 
         },
                                      cancel: nil,
@@ -155,8 +166,11 @@ class BrowerViewController: BaseViewController, UITextViewDelegate {
     
     @IBAction func changeFontSize(_ sender: UIStepper) {
         
-//        let size = fontSize[Int(sender.value)]
-//        self.highlightr.theme.codeFont = RPFont(name: "Courier", size: CGFloat(size))
+        let size = fontSize[Int(sender.value)]
+        self.textStorage.highlightr.theme.codeFont = RPFont(name: "Courier", size: CGFloat(size))
+        codeTextView?.text = fileCode
+        
+        SettingHelper.shareHelper.fontSizeIndex = Int(sender.value)
     }
  
     // MARK: - StatusBar
@@ -172,6 +186,6 @@ class BrowerViewController: BaseViewController, UITextViewDelegate {
 extension BrowerViewController {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offset = scrollView.contentOffset.y
-        print(offset)
+//        print(offset)
     }
 }

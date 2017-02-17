@@ -8,8 +8,9 @@
 
 import UIKit
 
-let languageNameKey = "lastUseLanguageNameKey"
-let themeNameKey = "lastUseThemeNameKey"
+let kLanguageNameKey = "lastUseLanguageNameKey"
+let kThemeNameKey = "lastUseThemeNameKey"
+let kFontSizeIndexKey = "fontSizeKey"
 
 final class SettingHelper: NSObject {
     static let shareHelper = SettingHelper()
@@ -18,7 +19,7 @@ final class SettingHelper: NSObject {
     var theme:String?{
 
         get{
-            if let themeName = UserDefaults.standard.object(forKey: themeNameKey) as? String{
+            if let themeName = UserDefaults.standard.object(forKey: kThemeNameKey) as? String{
                 return themeName
             }else{
                 return "Pojoaque"
@@ -26,13 +27,13 @@ final class SettingHelper: NSObject {
         }
        
         set{
-            UserDefaults.standard.setValue(newValue, forKey: themeNameKey)
+            UserDefaults.standard.setValue(newValue, forKey: kThemeNameKey)
         }
     }
     
     var language:String?{
         get{
-            if let languageName = UserDefaults.standard.object(forKey: languageNameKey) as? String{
+            if let languageName = UserDefaults.standard.object(forKey: kLanguageNameKey) as? String{
                 return languageName
             }else{
                 return "swift"
@@ -40,7 +41,23 @@ final class SettingHelper: NSObject {
         }
         
         set{
-            UserDefaults.standard.setValue(newValue, forKey: languageNameKey)
+            UserDefaults.standard.setValue(newValue, forKey: kLanguageNameKey)
+        }
+    }
+    
+    var fontSizeIndex:Int?{
+        get{
+            if UserDefaults.standard.object(forKey: kFontSizeIndexKey) != nil {
+                let i = UserDefaults.standard.integer(forKey: kFontSizeIndexKey)
+                return i
+            }else{
+                return 2
+            }
+            
+        }
+        
+        set{
+            UserDefaults.standard.set(newValue, forKey: kFontSizeIndexKey)
         }
     }
 }

@@ -73,7 +73,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="InL-5u-1gq"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="6HH-EA-51H"/>
                                     <barButtonItem style="plain" id="YWN-eU-mkt">
-                                        <stepper key="customView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="5" id="2qo-93-nVk">
+                                        <stepper key="customView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="4" id="2qo-93-nVk">
                                             <rect key="frame" x="160" y="8" width="94" height="29"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -106,6 +106,7 @@
                     <connections>
                         <outlet property="bottomToolBar" destination="pl1-Oc-9Rh" id="JRI-TU-5WB"/>
                         <outlet property="languageButton" destination="SaG-bK-iyf" id="ccN-0S-Lma"/>
+                        <outlet property="sizeStepper" destination="2qo-93-nVk" id="4YE-6H-MjE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9xL-SP-ZSo" userLabel="First Responder" sceneMemberID="firstResponder"/>

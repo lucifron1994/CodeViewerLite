@@ -41,6 +41,7 @@
 		3EAAC7F21E334E52008DA833 /* HomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		3EAAC7F41E334EDA008DA833 /* BrowerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowerViewController.swift; sourceTree = "<group>"; };
 		3EAAC7F61E335155008DA833 /* FileHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileHelper.swift; path = HomePage/FileHelper.swift; sourceTree = "<group>"; };
+		3EB74EA01E56E51F00CA5843 /* Supports */ = {isa = PBXFileReference; lastKnownFileType = text; path = Supports; sourceTree = "<group>"; };
 		3EFE8AF61E46D4D7002B4937 /* Welcome.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Welcome.txt; path = ../../Welcome.txt; sourceTree = "<group>"; };
 		3EFE8AF81E4704BB002B4937 /* CodeSamples */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CodeSamples; sourceTree = "<group>"; };
 		3EFE8B401E481805002B4937 /* FileModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileModel.swift; sourceTree = "<group>"; };
@@ -67,6 +68,7 @@
 				3E9296171E4C256600408FA8 /* Constant.swift */,
 				3E92961A1E4C260800408FA8 /* SettingHelper.swift */,
 				3EAAC7F61E335155008DA833 /* FileHelper.swift */,
+				3EB74EA01E56E51F00CA5843 /* Supports */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
