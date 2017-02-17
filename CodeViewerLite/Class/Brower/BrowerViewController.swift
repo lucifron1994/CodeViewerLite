@@ -80,8 +80,8 @@ class BrowerViewController: BaseViewController, UITextViewDelegate {
         view.insertSubview(codeTextView!, at: 0)
         
         codeTextView?.snp.makeConstraints({ (make) in
-            make.top.left.right.equalTo(self.view)
-            make.bottom.equalTo(self.view.snp.bottom).offset(-44)
+            make.edges.equalTo(self.view)
+//            make.bottom.equalTo(self.view.snp.bottom).offset(-44)
         })
         
         //
@@ -184,8 +184,14 @@ class BrowerViewController: BaseViewController, UITextViewDelegate {
 }
 
 extension BrowerViewController {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offset = scrollView.contentOffset.y
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        let offset = scrollView.contentOffset.y
 //        print(offset)
-    }
+//        
+//        if offset>64 {
+//            bottomToolBar.isHidden = true
+//        }else{
+//            bottomToolBar.isHidden = false
+//        }
+//    }
 }

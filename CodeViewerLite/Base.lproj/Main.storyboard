@@ -51,7 +51,7 @@
         <!--Brower View Controller-->
         <scene sceneID="UBQ-NZ-kqm">
             <objects>
-                <viewController id="13J-cP-oC4" customClass="BrowerViewController" customModule="CodeViewerLite" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" id="13J-cP-oC4" customClass="BrowerViewController" customModule="CodeViewerLite" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L6I-3b-zdc"/>
                         <viewControllerLayoutGuide type="bottom" id="G2U-Td-68V"/>
@@ -111,7 +111,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9xL-SP-ZSo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1490" y="162"/>
+            <point key="canvasLocation" x="1497" y="162"/>
         </scene>
         <!--Root Nav View Controller-->
         <scene sceneID="O7a-6C-MHp">
