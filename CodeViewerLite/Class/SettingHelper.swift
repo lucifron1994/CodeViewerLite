@@ -8,7 +8,6 @@
 
 import UIKit
 
-let firstTagKey = "firstTagKey"
 let languageNameKey = "lastUseLanguageNameKey"
 let themeNameKey = "lastUseThemeNameKey"
 

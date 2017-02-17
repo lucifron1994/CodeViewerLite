@@ -25,7 +25,7 @@ class BrowerViewController: BaseViewController, UITextViewDelegate {
     
     private var themeName : String = ""
     private var languageName : String = ""
-
+    private let fontSize = [10,12,14,16,18]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,7 +73,6 @@ class BrowerViewController: BaseViewController, UITextViewDelegate {
         })
         
         //
-//        let code = try! String.init(contentsOfFile: Bundle.main.path(forResource: "sampleCode", ofType: "txt")!)
         let code = try! String.init(contentsOfFile: (fileModel?.filePath)!)
         
         codeTextView?.text = code
@@ -95,6 +94,7 @@ class BrowerViewController: BaseViewController, UITextViewDelegate {
 //        themeName.textColor = navBar.tintColor.withAlphaComponent(0.5)
 //        toolBar.barTintColor = navBar.barTintColor
 //        toolBar.tintColor = navBar.tintColor
+        
     }
     
     func invertColor(_ color: UIColor) -> UIColor
@@ -118,6 +118,7 @@ class BrowerViewController: BaseViewController, UITextViewDelegate {
                 self.textStorage.highlightr.setTheme(to: theme)
                 self.themeName = theme.capitalized
                 SettingHelper.shareHelper.theme = theme
+                
                 self.updateColors()
         },
                                      cancel: nil,
@@ -152,6 +153,11 @@ class BrowerViewController: BaseViewController, UITextViewDelegate {
                                      origin: self.navigationController?.navigationBar)
     }
     
+    @IBAction func changeFontSize(_ sender: UIStepper) {
+        
+//        let size = fontSize[Int(sender.value)]
+//        self.highlightr.theme.codeFont = RPFont(name: "Courier", size: CGFloat(size))
+    }
  
     // MARK: - StatusBar
     override var prefersStatusBarHidden: Bool{

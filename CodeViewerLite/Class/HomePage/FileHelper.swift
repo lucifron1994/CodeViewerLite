@@ -8,6 +8,8 @@
 
 import UIKit
 
+let kFirstTimeLaunchTagKey = "firstLaunchTagKey"
+
 class FileHelper: NSObject {
     
     class func getDocumentsFile() -> [FileModel]{
@@ -22,9 +24,9 @@ class FileHelper: NSObject {
     
     class func deleteFile(withModel model : FileModel){
         let fileManager = FileManager.default
-//        do {
-            try! fileManager.removeItem(atPath: model.filePath)
-//        }
+        do {
+            try? fileManager.removeItem(atPath: model.filePath)
+        }
     }
     
     // MARK - Private
@@ -56,5 +58,21 @@ class FileHelper: NSObject {
         return fileModels
     }
     
+    //MARK: - First Time Launch
+    class func firstTimeLaunch(){
+        let isFirstTimeTag = UserDefaults.standard.bool(forKey: kFirstTimeLaunchTagKey)
+        if !isFirstTimeTag {
+            // Add Help File into Documents Directory
+            let documentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first
+            let toFilePath = documentPath?.appending("/Welcome.txt");
+            
+            let fromFilePath = Bundle.main.path(forResource: "Welcome", ofType: "txt")
+            do {
+                try? FileManager.default.copyItem(atPath: fromFilePath!, toPath: toFilePath!)
+            }
+            
+            UserDefaults.standard.set(true, forKey: kFirstTimeLaunchTagKey)
+        }
+    }
     
 }
