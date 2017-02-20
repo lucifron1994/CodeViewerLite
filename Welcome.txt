@@ -13,5 +13,3 @@ class Welcome: NSObject{
     }
 
 }
-
-//test
