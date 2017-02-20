@@ -44,6 +44,9 @@ class BrowerViewController: BaseViewController, UITextViewDelegate {
     
     func setUI(){
         title = fileModel?.fileName
+        
+        let pinchGes = UIPinchGestureRecognizer(target: self, action: #selector(BrowerViewController.pinchGesture(sender:)))
+        view.addGestureRecognizer(pinchGes)
     }
     
     func initText(){
@@ -80,7 +83,7 @@ class BrowerViewController: BaseViewController, UITextViewDelegate {
         view.insertSubview(codeTextView!, at: 0)
         
         codeTextView?.snp.makeConstraints({ (make) in
-            make.edges.equalTo(self.view)
+            make.top.left.right.equalTo(self.view)
             make.bottom.equalTo(self.view.snp.bottom).offset(-44)
         })
         
@@ -172,7 +175,40 @@ class BrowerViewController: BaseViewController, UITextViewDelegate {
         
         SettingHelper.shareHelper.fontSizeIndex = Int(sender.value)
     }
- 
+    
+    
+    func pinchGesture(sender:UIPinchGestureRecognizer){
+        if sender.state == .ended {
+            
+            if sender.scale > 1 {
+                increaseFontSize()
+            }else if sender.scale < 1{
+                reduceFontSize()
+            }
+        }
+    }
+    
+    func increaseFontSize() {
+        var currentValue = sizeStepper.value
+        print("Current \(currentValue) Max \(sizeStepper.maximumValue)")
+        if currentValue < sizeStepper.maximumValue {
+            currentValue = currentValue + 1
+            sizeStepper.value = currentValue
+            changeFontSize(sizeStepper)
+        }
+    }
+    
+    func reduceFontSize(){
+        var currentValue = sizeStepper.value
+        print("Current \(currentValue) Min \(sizeStepper.minimumValue)")
+        if currentValue > sizeStepper.minimumValue {
+            currentValue = currentValue - 1
+            sizeStepper.value = currentValue
+            changeFontSize(sizeStepper)
+        }
+    }
+    
+    
     // MARK: - StatusBar
     override var prefersStatusBarHidden: Bool{
         return false
