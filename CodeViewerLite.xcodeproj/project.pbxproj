@@ -20,7 +20,6 @@
 		3EAAC7F51E334EDA008DA833 /* BrowerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAAC7F41E334EDA008DA833 /* BrowerViewController.swift */; };
 		3EAAC7F71E335155008DA833 /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAAC7F61E335155008DA833 /* FileHelper.swift */; };
 		3EFE8AF71E46D4D7002B4937 /* Welcome.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3EFE8AF61E46D4D7002B4937 /* Welcome.txt */; };
-		3EFE8AF91E4704BB002B4937 /* CodeSamples in Resources */ = {isa = PBXBuildFile; fileRef = 3EFE8AF81E4704BB002B4937 /* CodeSamples */; };
 		3EFE8B411E481805002B4937 /* FileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFE8B401E481805002B4937 /* FileModel.swift */; };
 		7A2BA0ADD5227E54C004E649 /* Pods_CodeViewerLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1C21750F94FE647E4713E81 /* Pods_CodeViewerLite.framework */; };
 /* End PBXBuildFile section */
@@ -248,7 +247,6 @@
 			files = (
 				3EAAC7E71E334C66008DA833 /* LaunchScreen.storyboard in Resources */,
 				3EFE8AF71E46D4D7002B4937 /* Welcome.txt in Resources */,
-				3EFE8AF91E4704BB002B4937 /* CodeSamples in Resources */,
 				3EAAC7E41E334C66008DA833 /* Assets.xcassets in Resources */,
 				3EAAC7E21E334C66008DA833 /* Main.storyboard in Resources */,
 			);
