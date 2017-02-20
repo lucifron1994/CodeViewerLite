@@ -12,6 +12,8 @@ class HomePageFileCell: UITableViewCell {
 
     var fileModel:FileModel?{
         didSet{
+            self.textLabel?.font = UIFont.systemFont(ofSize: 14)
+            
             self.textLabel?.text = fileModel?.fileName
             
             if (fileModel?.isDirectory)! {

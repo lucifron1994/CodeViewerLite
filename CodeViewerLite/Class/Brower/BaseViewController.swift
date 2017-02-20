@@ -21,7 +21,6 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    
     func setNavi(){
         if (navigationController?.viewControllers.count)! > 1 {
             let backItem = UIBarButtonItem(image: UIImage.init(named: "nav_back"), style: .plain, target: self, action: #selector(self.popViewController))

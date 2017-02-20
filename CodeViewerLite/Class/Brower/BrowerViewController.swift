@@ -81,7 +81,7 @@ class BrowerViewController: BaseViewController, UITextViewDelegate {
         
         codeTextView?.snp.makeConstraints({ (make) in
             make.edges.equalTo(self.view)
-//            make.bottom.equalTo(self.view.snp.bottom).offset(-44)
+            make.bottom.equalTo(self.view.snp.bottom).offset(-44)
         })
         
         //

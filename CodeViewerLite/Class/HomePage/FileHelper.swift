@@ -66,9 +66,12 @@ class FileHelper: NSObject {
             let documentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first
             let toFilePath = documentPath?.appending("/Welcome.txt");
             
-            let fromFilePath = Bundle.main.path(forResource: "Welcome", ofType: "txt")
-            do {
-                try? FileManager.default.copyItem(atPath: fromFilePath!, toPath: toFilePath!)
+            if !FileManager.default.fileExists(atPath: toFilePath!) {
+                
+                let fromFilePath = Bundle.main.path(forResource: "Welcome", ofType: "txt")
+                do {
+                    try? FileManager.default.copyItem(atPath: fromFilePath!, toPath: toFilePath!)
+                }
             }
             
             UserDefaults.standard.set(true, forKey: kFirstTimeLaunchTagKey)
