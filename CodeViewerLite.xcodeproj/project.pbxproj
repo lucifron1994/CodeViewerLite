@@ -440,6 +440,7 @@
 			baseConfigurationReference = 237A279EAD88F61A5F27C3A6 /* Pods-CodeViewerLite.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = CodeViewerLite/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = wanghong.CodeViewerLite;
@@ -453,6 +454,7 @@
 			baseConfigurationReference = A248E6C52A0FF4FB1399C6CF /* Pods-CodeViewerLite.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = CodeViewerLite/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = wanghong.CodeViewerLite;

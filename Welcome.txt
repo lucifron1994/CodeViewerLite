@@ -9,7 +9,12 @@ class Welcome: NSObject{
     let start = true
     
     func HowToUse(){
+        let tool = iTunes()
 
     }
 
 }
+
+/* How to transfer file?
+   open iTunes 
+*/
