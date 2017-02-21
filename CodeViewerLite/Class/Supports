@@ -5,8 +5,7 @@ All:
 
 Used:
 
-[]
-
+["bash","cpp","django","erlang","haskell","go","lua", "java", "javascript","json", "objectivec","php","python","ruby","smalltalk","sql","swift","xml"]
 
 
 
@@ -16,4 +15,4 @@ All:
 
 Used:
 
-[]
+["agate", "androidstudio", "arduino-light", "arta", "atom-one-dark", "atom-one-light", "brown-paper", "darcula", "dark", "darkula", "default", "docco", "dracula", "far", "github-gist", "github", "googlecode", "grayscale", "gruvbox-dark", "gruvbox-light", "magula", "mono-blue", "monokai-sublime", "monokai", "ocean", "purebasic", "qtcreator_dark", "qtcreator_light", "school-book", "solarized-dark", "solarized-light", "sunburst", "vs", "xcode", "xt256", "zenburn"]

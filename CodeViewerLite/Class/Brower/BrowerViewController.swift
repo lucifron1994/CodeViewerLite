@@ -30,7 +30,9 @@ class BrowerViewController: BaseViewController, UITextViewDelegate {
     
     private var fileCode : String = ""
     
-    private let supportLanguages = ["javascript","swift","objectivec"]
+    private let supportLanguages = ["bash","cpp","django","erlang","haskell","go","lua", "java", "javascript","json", "objectivec","php","python","ruby","smalltalk","sql","swift","xml"]
+    
+    private let supportThemes = ["agate", "androidstudio", "arduino-light", "arta", "atom-one-dark", "atom-one-light", "brown-paper", "dark", "darkula", "docco", "dracula", "far", "github-gist", "github", "googlecode", "grayscale", "gruvbox-dark", "gruvbox-light", "magula", "mono-blue", "monokai-sublime", "monokai", "ocean", "purebasic", "solarized-dark", "solarized-light", "sunburst", "vs", "xcode", "xt256", "zenburn"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -119,13 +121,13 @@ class BrowerViewController: BaseViewController, UITextViewDelegate {
     }
 
     @IBAction func changeTheme(_ sender: Any) {
-        let themes = highlightr.availableThemes()
+//        let themes = highlightr.availableThemes()
         
-        let indexOrNil = themes.index(of: themeName.lowercased())
+        let indexOrNil = supportThemes.index(of: themeName.lowercased())
         let index = (indexOrNil == nil) ? 0 : indexOrNil!
         
         ActionSheetStringPicker.show(withTitle: "Pick a Theme",
-                                     rows: themes,
+                                     rows: supportThemes,
                                      initialSelection: index,
                                      doneBlock:
             { picker, index, value in
@@ -141,8 +143,8 @@ class BrowerViewController: BaseViewController, UITextViewDelegate {
     
     
     @IBAction func changeLanguage(_ sender: Any) {
-        let languages = highlightr.supportedLanguages()
-        let indexOrNil = languages.index(of: languageName.lowercased())
+//        let languages = highlightr.supportedLanguages()
+        let indexOrNil = supportLanguages.index(of: languageName.lowercased())
         let index = (indexOrNil == nil) ? 0 : indexOrNil!
         
         ActionSheetStringPicker.show(withTitle: "Pick a Language",
@@ -207,7 +209,6 @@ class BrowerViewController: BaseViewController, UITextViewDelegate {
             changeFontSize(sizeStepper)
         }
     }
-    
     
     // MARK: - StatusBar
     override var prefersStatusBarHidden: Bool{
