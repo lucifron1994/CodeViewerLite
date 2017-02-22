@@ -47,7 +47,8 @@ class FileHelper: NSObject {
             
             var isDir : ObjCBool = false
             if fileManager.fileExists(atPath: filePath, isDirectory: &isDir){
-                let fileURL = URL(string: filePath)
+                let encodeUrlStr = filePath.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
+                let fileURL = URL(string: encodeUrlStr!)
                 let fileType = (fileURL?.pathExtension != nil) ? fileURL?.pathExtension.lowercased() : ""
                 
                 let fileModel = FileModel(fileName: item, filePath:filePath , fileType:fileType! , isDirectory: isDir.boolValue)

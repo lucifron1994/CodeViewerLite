@@ -26,7 +26,6 @@ class HomePageViewController: BaseViewController, UITableViewDataSource, UITable
         setUI()
         
         setData()
-        
     }
     
     private func setData(){
