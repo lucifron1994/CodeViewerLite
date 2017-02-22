@@ -22,7 +22,7 @@ final class SettingHelper: NSObject {
             if let themeName = UserDefaults.standard.object(forKey: kThemeNameKey) as? String{
                 return themeName
             }else{
-                return "Pojoaque"
+                return "xcode"
             }
         }
        

@@ -10,6 +10,7 @@ import UIKit
 import Highlightr
 import SnapKit
 import ActionSheetPicker_3_0
+import SafariServices
 
 class BrowerViewController: BaseViewController, UITextViewDelegate {
     
@@ -74,10 +75,14 @@ class BrowerViewController: BaseViewController, UITextViewDelegate {
         layoutManager.addTextContainer(textContainer)
         
         
+        
         codeTextView = UITextView(frame: view.bounds, textContainer: textContainer)
+        codeTextView?.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+
         codeTextView?.isEditable = false
         codeTextView?.delegate = self
         
+        codeTextView?.dataDetectorTypes = .link
         codeTextView?.autocorrectionType = UITextAutocorrectionType.no
         codeTextView?.autocapitalizationType = UITextAutocapitalizationType.none
         codeTextView?.textColor = UIColor(white: 0.8, alpha: 1.0)
@@ -231,4 +236,16 @@ extension BrowerViewController {
 //            bottomToolBar.isHidden = false
 //        }
 //    }
+    
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange) -> Bool {
+        print("Open URL \(URL)")
+        if #available(iOS 9.0, *) {
+            let safari = SFSafariViewController(url: URL, entersReaderIfAvailable: true)
+            present(safari, animated: true, completion: nil)
+            return false
+        } else {
+            // Fallback on earlier versions
+            return true
+        }
+    }
 }

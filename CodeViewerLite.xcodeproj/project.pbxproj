@@ -20,7 +20,8 @@
 		3EAAC7F51E334EDA008DA833 /* BrowerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAAC7F41E334EDA008DA833 /* BrowerViewController.swift */; };
 		3EAAC7F71E335155008DA833 /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAAC7F61E335155008DA833 /* FileHelper.swift */; };
 		3EE0C32E1E5D310800BE2184 /* Supports in Resources */ = {isa = PBXBuildFile; fileRef = 3EE0C32C1E5D310800BE2184 /* Supports */; };
-		3EE0C32F1E5D310800BE2184 /* Welcome.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3EE0C32D1E5D310800BE2184 /* Welcome.txt */; };
+		3EE0C32F1E5D310800BE2184 /* Helper.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3EE0C32D1E5D310800BE2184 /* Helper.txt */; };
+		3EE0C3351E5D8FBB00BE2184 /* swift.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3EE0C3341E5D8FBB00BE2184 /* swift.txt */; };
 		3EFE8B411E481805002B4937 /* FileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFE8B401E481805002B4937 /* FileModel.swift */; };
 		7A2BA0ADD5227E54C004E649 /* Pods_CodeViewerLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1C21750F94FE647E4713E81 /* Pods_CodeViewerLite.framework */; };
 /* End PBXBuildFile section */
@@ -42,7 +43,8 @@
 		3EAAC7F41E334EDA008DA833 /* BrowerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowerViewController.swift; sourceTree = "<group>"; };
 		3EAAC7F61E335155008DA833 /* FileHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileHelper.swift; path = HomePage/FileHelper.swift; sourceTree = "<group>"; };
 		3EE0C32C1E5D310800BE2184 /* Supports */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Supports; sourceTree = "<group>"; };
-		3EE0C32D1E5D310800BE2184 /* Welcome.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Welcome.txt; sourceTree = "<group>"; };
+		3EE0C32D1E5D310800BE2184 /* Helper.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Helper.txt; sourceTree = "<group>"; };
+		3EE0C3341E5D8FBB00BE2184 /* swift.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = swift.txt; sourceTree = "<group>"; };
 		3EFE8AF81E4704BB002B4937 /* CodeSamples */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CodeSamples; sourceTree = "<group>"; };
 		3EFE8B401E481805002B4937 /* FileModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileModel.swift; sourceTree = "<group>"; };
 		A248E6C52A0FF4FB1399C6CF /* Pods-CodeViewerLite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeViewerLite.release.xcconfig"; path = "Pods/Target Support Files/Pods-CodeViewerLite/Pods-CodeViewerLite.release.xcconfig"; sourceTree = "<group>"; };
@@ -169,8 +171,9 @@
 		3EE0C32B1E5D306200BE2184 /* HelperFIle */ = {
 			isa = PBXGroup;
 			children = (
+				3EE0C3341E5D8FBB00BE2184 /* swift.txt */,
 				3EE0C32C1E5D310800BE2184 /* Supports */,
-				3EE0C32D1E5D310800BE2184 /* Welcome.txt */,
+				3EE0C32D1E5D310800BE2184 /* Helper.txt */,
 			);
 			name = HelperFIle;
 			path = HelperFile;
@@ -258,7 +261,8 @@
 				3EE0C32E1E5D310800BE2184 /* Supports in Resources */,
 				3EAAC7E71E334C66008DA833 /* LaunchScreen.storyboard in Resources */,
 				3EAAC7E41E334C66008DA833 /* Assets.xcassets in Resources */,
-				3EE0C32F1E5D310800BE2184 /* Welcome.txt in Resources */,
+				3EE0C32F1E5D310800BE2184 /* Helper.txt in Resources */,
+				3EE0C3351E5D8FBB00BE2184 /* swift.txt in Resources */,
 				3EAAC7E21E334C66008DA833 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

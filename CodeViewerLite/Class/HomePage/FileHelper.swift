@@ -65,19 +65,41 @@ class FileHelper: NSObject {
         let isFirstTimeTag = UserDefaults.standard.bool(forKey: kFirstTimeLaunchTagKey)
         if !isFirstTimeTag {
             // Add Help File into Documents Directory
-            let documentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first
-            let toFilePath = documentPath?.appending("/Welcome.txt");
-            
-            if !FileManager.default.fileExists(atPath: toFilePath!) {
-                
-                let fromFilePath = Bundle.main.path(forResource: "Welcome", ofType: "txt")
-                do {
-                    try? FileManager.default.copyItem(atPath: fromFilePath!, toPath: toFilePath!)
-                }
-            }
+            copyHelperFile()
+            copyCodeDemo()
             
             UserDefaults.standard.set(true, forKey: kFirstTimeLaunchTagKey)
         }
+    }
+    
+    
+    class func copyHelperFile(){
+        let documentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first
+        let toFilePath = documentPath?.appending("/Helper.txt");
+        if !FileManager.default.fileExists(atPath: toFilePath!) {
+            let fromFilePath = Bundle.main.path(forResource: "Helper", ofType: "txt")
+            do {
+                try? FileManager.default.copyItem(atPath: fromFilePath!, toPath: toFilePath!)
+            }
+        }
+
+    }
+    
+    class func copyCodeDemo(){
+        
+        let documentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first
+        let toFilePath = documentPath?.appending("/SwiftDemo.swift");
+        let fromFilePath = Bundle.main.path(forResource: "swift", ofType: "txt")
+
+        
+        if !FileManager.default.fileExists(atPath: toFilePath!) {
+            let str = try! String(contentsOfFile: fromFilePath!)
+            do {
+               try? str.write(toFile: toFilePath!, atomically: true, encoding: .utf8)
+            }
+           
+        }
+        
     }
     
 }

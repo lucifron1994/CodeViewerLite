@@ -1,0 +1,13 @@
+
+How to import files by using iTunes?
+
+1: Open iTunes on your Mac or PC.
+2: Connect your iPhone, iPad, or iPod touch to your computer using the USB cable that came with your device.
+3: Click your device in iTunes.
+4: In the left sidebar, click Apps. Then, scroll to the File Sharing section at the bottom of the page.
+5: Select the 'Code Viewer' from the list in the File Sharing section.
+6: Drag and drop files from a folder or window onto the Documents list to copy them to your device.
+You can also click Add in the Documents list in iTunes, find the file or files you want to copy from your computer, and then click Add. iTunes copies these files to the app on your device. Choose only files that will work with the app. Check the app's user guide to learn which kinds of files will work.
+
+For Details:
+https://support.apple.com/en-us/HT201301
