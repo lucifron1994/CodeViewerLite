@@ -61,6 +61,7 @@ class FileHelper: NSObject {
     
     //MARK: - First Time Launch
     class func firstTimeLaunch(){
+        
         let isFirstTimeTag = UserDefaults.standard.bool(forKey: kFirstTimeLaunchTagKey)
         if !isFirstTimeTag {
             // Add Help File into Documents Directory
