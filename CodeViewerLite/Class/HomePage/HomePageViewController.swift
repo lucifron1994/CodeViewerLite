@@ -26,6 +26,7 @@ class HomePageViewController: BaseViewController, UITableViewDataSource, UITable
         setUI()
         
         setData()
+        
     }
     
     private func setData(){
@@ -110,7 +111,10 @@ extension HomePageViewController{
             homePage.currentFolderModel = model
             self.show(homePage, sender: nil)
         }else{
-            performSegue(withIdentifier: toBrowerSegueId, sender: model)
+//            performSegue(withIdentifier: toBrowerSegueId, sender: model)
+            let brower = BrowerViewController()
+            brower.fileModel = model
+            self.show(brower, sender: nil)
         }
     }
     

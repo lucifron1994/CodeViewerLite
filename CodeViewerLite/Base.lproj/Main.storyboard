@@ -41,77 +41,11 @@
                     <navigationItem key="navigationItem" title="Doucument" id="JGL-f5-Uiw"/>
                     <connections>
                         <outlet property="tableView" destination="QRI-Kp-ffq" id="PSe-3H-2ND"/>
-                        <segue destination="13J-cP-oC4" kind="show" identifier="toBrowerSegue" id="x56-EN-49F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="628" y="163"/>
-        </scene>
-        <!--Brower View Controller-->
-        <scene sceneID="UBQ-NZ-kqm">
-            <objects>
-                <viewController extendedLayoutIncludesOpaqueBars="YES" id="13J-cP-oC4" customClass="BrowerViewController" customModule="CodeViewerLite" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="L6I-3b-zdc"/>
-                        <viewControllerLayoutGuide type="bottom" id="G2U-Td-68V"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="gze-hw-4s7">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="pl1-Oc-9Rh">
-                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="OuG-8A-2H9"/>
-                                </constraints>
-                                <items>
-                                    <barButtonItem title="Language" id="SaG-bK-iyf">
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <action selector="changeLanguage:" destination="13J-cP-oC4" id="ht5-uk-hyS"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="EDF-yk-URl"/>
-                                    <barButtonItem style="plain" id="YWN-eU-mkt">
-                                        <stepper key="customView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="4" id="2qo-93-nVk">
-                                            <rect key="frame" x="140" y="8" width="94" height="29"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <connections>
-                                                <action selector="changeFontSize:" destination="13J-cP-oC4" eventType="valueChanged" id="cio-p8-pbJ"/>
-                                            </connections>
-                                        </stepper>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="HIP-UE-aQW"/>
-                                    <barButtonItem title="Theme" id="bTh-GD-d4Z">
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <action selector="changeTheme:" destination="13J-cP-oC4" id="Nk3-g4-LYU"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="pl1-Oc-9Rh" firstAttribute="leading" secondItem="gze-hw-4s7" secondAttribute="leading" id="MBm-mv-apK"/>
-                            <constraint firstItem="G2U-Td-68V" firstAttribute="top" secondItem="pl1-Oc-9Rh" secondAttribute="bottom" id="Rob-zV-7pb"/>
-                            <constraint firstAttribute="trailing" secondItem="pl1-Oc-9Rh" secondAttribute="trailing" id="kR6-H3-y5l"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="9R6-CP-Wyg">
-                        <nil key="title"/>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="bottomToolBar" destination="pl1-Oc-9Rh" id="JRI-TU-5WB"/>
-                        <outlet property="languageButton" destination="SaG-bK-iyf" id="ccN-0S-Lma"/>
-                        <outlet property="sizeStepper" destination="2qo-93-nVk" id="4YE-6H-MjE"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9xL-SP-ZSo" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1497" y="162"/>
         </scene>
         <!--Root Nav View Controller-->
         <scene sceneID="O7a-6C-MHp">

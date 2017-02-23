@@ -100,22 +100,22 @@ class BrowerViewController: BaseViewController, UITextViewDelegate {
         codeTextView?.text = fileCode
         
         highlightr = textStorage.highlightr
-
+        
         updateColors()
     }
-
+    
     func updateColors()
     {
         codeTextView?.backgroundColor = highlightr.theme.themeBackgroundColor
-//        self.navigationBar_.barTintColor = highlightr.theme.themeBackgroundColor
-//        self.navigationBar_.tintColor = invertColor(self.navigationBar_.barTintColor!)
-//        
-//        self.navigationBarBG.backgroundColor = highlightr.theme.themeBackgroundColor
+        //        self.navigationBar_.barTintColor = highlightr.theme.themeBackgroundColor
+        //        self.navigationBar_.tintColor = invertColor(self.navigationBar_.barTintColor!)
+        //
+        //        self.navigationBarBG.backgroundColor = highlightr.theme.themeBackgroundColor
         
-//        languageName.textColor = navBar.tintColor
-//        themeName.textColor = navBar.tintColor.withAlphaComponent(0.5)
-//        toolBar.barTintColor = navBar.barTintColor
-//        toolBar.tintColor = navBar.tintColor
+        //        languageName.textColor = navBar.tintColor
+        //        themeName.textColor = navBar.tintColor.withAlphaComponent(0.5)
+        //        toolBar.barTintColor = navBar.barTintColor
+        //        toolBar.tintColor = navBar.tintColor
     }
     
     func invertColor(_ color: UIColor) -> UIColor
@@ -124,9 +124,9 @@ class BrowerViewController: BaseViewController, UITextViewDelegate {
         color.getRed(&r, green: &g, blue: &b, alpha: nil)
         return UIColor(red:1.0-r, green: 1.0-g, blue: 1.0-b, alpha: 1)
     }
-
+    
     @IBAction func changeTheme(_ sender: Any) {
-//        let themes = highlightr.availableThemes()
+        //        let themes = highlightr.availableThemes()
         
         let indexOrNil = supportThemes.index(of: themeName.lowercased())
         let index = (indexOrNil == nil) ? 0 : indexOrNil!
@@ -144,11 +144,11 @@ class BrowerViewController: BaseViewController, UITextViewDelegate {
         },
                                      cancel: nil,
                                      origin: self.navigationController?.navigationBar)
+
     }
     
-    
     @IBAction func changeLanguage(_ sender: Any) {
-//        let languages = highlightr.supportedLanguages()
+        //        let languages = highlightr.supportedLanguages()
         let indexOrNil = supportLanguages.index(of: languageName.lowercased())
         let index = (indexOrNil == nil) ? 0 : indexOrNil!
         
@@ -174,15 +174,6 @@ class BrowerViewController: BaseViewController, UITextViewDelegate {
                                      origin: self.navigationController?.navigationBar)
     }
     
-    @IBAction func changeFontSize(_ sender: UIStepper) {
-        
-        let size = fontSize[Int(sender.value)]
-        self.textStorage.highlightr.theme.codeFont = RPFont(name: "Courier", size: CGFloat(size))
-        codeTextView?.text = fileCode
-        
-        SettingHelper.shareHelper.fontSizeIndex = Int(sender.value)
-    }
-    
     
     func pinchGesture(sender:UIPinchGestureRecognizer){
         if sender.state == .ended {
@@ -193,6 +184,14 @@ class BrowerViewController: BaseViewController, UITextViewDelegate {
                 reduceFontSize()
             }
         }
+    }
+    
+    @IBAction func changeFontSize(_ sender: UIStepper) {
+        let size = fontSize[Int(sender.value)]
+        self.textStorage.highlightr.theme.codeFont = RPFont(name: "Courier", size: CGFloat(size))
+        codeTextView?.text = fileCode
+        
+        SettingHelper.shareHelper.fontSizeIndex = Int(sender.value)
     }
     
     func increaseFontSize() {
@@ -226,16 +225,16 @@ class BrowerViewController: BaseViewController, UITextViewDelegate {
 }
 
 extension BrowerViewController {
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        let offset = scrollView.contentOffset.y
-//        print(offset)
-//        
-//        if offset>64 {
-//            bottomToolBar.isHidden = true
-//        }else{
-//            bottomToolBar.isHidden = false
-//        }
-//    }
+    //    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    //        let offset = scrollView.contentOffset.y
+    //        print(offset)
+    //
+    //        if offset>64 {
+    //            bottomToolBar.isHidden = true
+    //        }else{
+    //            bottomToolBar.isHidden = false
+    //        }
+    //    }
     
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange) -> Bool {
         print("Open URL \(URL)")
