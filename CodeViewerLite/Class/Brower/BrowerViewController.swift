@@ -21,6 +21,7 @@ class BrowerViewController: BaseViewController, UITextViewDelegate {
     @IBOutlet weak var languageButton: UIBarButtonItem!
     @IBOutlet weak var bottomToolBar: UIToolbar!
     @IBOutlet weak var sizeStepper: UIStepper!
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
     
     private var highlightr : Highlightr!
     private let textStorage = CodeAttributedString()
@@ -37,16 +38,31 @@ class BrowerViewController: BaseViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         setUI()
         
         initText()
+//        print(fileModel ?? "FileModel == NULL")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
-        print(fileModel ?? "FileModel == NULL")
+        let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
+        self.codeTextView?.scrollRectToVisible(rect, animated: false)
+        
+        UIView.animate(withDuration: 0.3) {
+            self.indicator.stopAnimating()
+            self.codeTextView?.alpha = 1
+        }
     }
     
     func setUI(){
         title = fileModel?.fileName
+        
+//        self.edgesForExtendedLayout = .all
+//        self.extendedLayoutIncludesOpaqueBars = true
+//        self.automaticallyAdjustsScrollViewInsets = true
         
         let pinchGes = UIPinchGestureRecognizer(target: self, action: #selector(BrowerViewController.pinchGesture(sender:)))
         view.addGestureRecognizer(pinchGes)
@@ -64,7 +80,7 @@ class BrowerViewController: BaseViewController, UITextViewDelegate {
         
         //初始字号
         let fontIndex = SettingHelper.shareHelper.fontSizeIndex!
-        textStorage.highlightr.theme.codeFont = RPFont(name: "Courier", size: CGFloat(fontSize[fontIndex]))
+//        textStorage.highlightr.theme.codeFont = RPFont(name: "Courier", size: CGFloat(fontSize[fontIndex]))
         sizeStepper.value = Double(fontIndex)
         
         
@@ -75,8 +91,8 @@ class BrowerViewController: BaseViewController, UITextViewDelegate {
         layoutManager.addTextContainer(textContainer)
         
         
-        
         codeTextView = UITextView(frame: view.bounds, textContainer: textContainer)
+        codeTextView?.alpha = 0
         codeTextView?.autoresizingMask = [.flexibleHeight, .flexibleWidth]
 
         codeTextView?.isEditable = false
@@ -88,6 +104,7 @@ class BrowerViewController: BaseViewController, UITextViewDelegate {
         codeTextView?.textColor = UIColor(white: 0.8, alpha: 1.0)
         codeTextView?.alwaysBounceVertical  = true
         view.insertSubview(codeTextView!, at: 0)
+//        codeTextView?.contentOffset = CGPoint(x: 0, y: -64)
         
         codeTextView?.snp.makeConstraints({ (make) in
             make.top.left.right.equalTo(self.view)
@@ -96,7 +113,7 @@ class BrowerViewController: BaseViewController, UITextViewDelegate {
         
         //
         fileCode = try! String.init(contentsOfFile: (fileModel?.filePath)!)
-        
+    
         codeTextView?.text = fileCode
         
         highlightr = textStorage.highlightr

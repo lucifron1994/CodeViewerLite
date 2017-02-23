@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BrowerViewController" customModule="CodeViewerLite" customModuleProvider="target">
             <connections>
                 <outlet property="bottomToolBar" destination="Pyh-Ao-qu8" id="eFt-4i-rvz"/>
+                <outlet property="indicator" destination="TG5-sS-kls" id="Shf-KZ-oMA"/>
                 <outlet property="languageButton" destination="W0S-h3-j1u" id="cDZ-SS-t7h"/>
                 <outlet property="sizeStepper" destination="Ri8-u3-HAZ" id="NZ2-bh-2BA"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -54,14 +55,22 @@
                         </barButtonItem>
                     </items>
                 </toolbar>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="TG5-sS-kls">
+                    <rect key="frame" x="169" y="315" width="37" height="37"/>
+                    <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="Pyh-Ao-qu8" secondAttribute="bottom" id="I92-Jh-fQB"/>
+                <constraint firstItem="TG5-sS-kls" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ZXJ-XX-tgo"/>
                 <constraint firstItem="Pyh-Ao-qu8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Zlv-41-iq8"/>
+                <constraint firstItem="TG5-sS-kls" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="otm-18-Bh8"/>
                 <constraint firstAttribute="trailing" secondItem="Pyh-Ao-qu8" secondAttribute="trailing" id="zAK-C2-cGS"/>
             </constraints>
-            <point key="canvasLocation" x="-132" y="88"/>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <point key="canvasLocation" x="-571" y="110"/>
         </view>
     </objects>
 </document>
