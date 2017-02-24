@@ -74,15 +74,13 @@ class BrowerViewController: BaseViewController, UITextViewDelegate {
         
         languageButton.title = languageName
 
-        
         textStorage.language = languageName
         textStorage.highlightr.setTheme(to: themeName)
         
         //初始字号
         let fontIndex = SettingHelper.shareHelper.fontSizeIndex!
-//        textStorage.highlightr.theme.codeFont = RPFont(name: "Courier", size: CGFloat(fontSize[fontIndex]))
+        textStorage.highlightr.theme.codeFont = RPFont(name: "", size: CGFloat(fontSize[fontIndex])) //Default font, Remove Courier
         sizeStepper.value = Double(fontIndex)
-        
         
         let layoutManager = NSLayoutManager()
         textStorage.addLayoutManager(layoutManager)
@@ -174,6 +172,7 @@ class BrowerViewController: BaseViewController, UITextViewDelegate {
                                      initialSelection: index,
                                      doneBlock:
             { picker, index, value in
+                
                 let language = value! as! String
                 self.textStorage.language = language
                 self.languageName = language.capitalized
