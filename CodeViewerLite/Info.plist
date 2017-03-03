@@ -53,5 +53,88 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    
+    <key>CFBundleDocumentTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleTypeName</key>
+            <string>OpenDocument Text</string>
+            <key>LSHandlerRank</key>
+            <string>Alternate</string>
+            <key>LSItemContentTypes</key>
+            <array>
+                <string>org.oasis.opendocument.text</string>
+            </array>
+        </dict>
+        <dict>
+            <key>CFBundleTypeName</key>
+            <string>Folder</string>
+            <key>LSHandlerRank</key>
+            <string>Alternate</string>
+            <key>LSItemContentTypes</key>
+            <array>
+                <string>public.folder</string>
+            </array>
+        </dict>
+        <dict>
+            <key>CFBundleTypeName</key>
+            <string>XML</string>
+            <key>LSHandlerRank</key>
+            <string>Alternate</string>
+            <key>LSItemContentTypes</key>
+            <array>
+                <string>public.xml</string>
+            </array>
+        </dict>
+        <dict>
+            <key>CFBundleTypeName</key>
+            <string>HTML</string>
+            <key>LSHandlerRank</key>
+            <string>Alternate</string>
+            <key>LSItemContentTypes</key>
+            <array>
+                <string>public.html</string>
+                <string>public.xhtml</string>
+            </array>
+        </dict>
+        <dict>
+            <key>CFBundleTypeName</key>
+            <string>Rich Text</string>
+            <key>LSHandlerRank</key>
+            <string>Alternate</string>
+            <key>LSItemContentTypes</key>
+            <array>
+                <string>public.rtf</string>
+                <string>com.apple.rtfd</string>
+                <string>com.apple.flat-rtfd</string>
+            </array>
+        </dict>
+        <dict>
+            <key>CFBundleTypeName</key>
+            <string>Text</string>
+            <key>LSHandlerRank</key>
+            <string>Alternate</string>
+            <key>LSItemContentTypes</key>
+            <array>
+                <string>public.text</string>
+                <string>public.plain-text</string>
+                <string>public.utf8-plain-text</string>
+                <string>public.utf16-external-plain-​text</string>
+                <string>public.utf16-plain-text</string>
+                <string>com.apple.traditional-mac-​plain-text</string>
+                <string>public.source-code</string>
+                <string>public.c-source</string>
+                <string>public.objective-c-source</string>
+                <string>public.c-plus-plus-source</string>
+                <string>public.objective-c-plus-​plus-source</string>
+                <string>public.c-header</string>
+                <string>public.c-plus-plus-header</string>
+                <string>com.sun.java-source</string>
+                <string>public.script</string>
+                <string>public.shell-script</string>
+            </array>
+        </dict>
+    </array>
+    
 </dict>
 </plist>
