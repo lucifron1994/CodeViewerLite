@@ -41,11 +41,30 @@
                     <navigationItem key="navigationItem" title="Doucument" id="JGL-f5-Uiw"/>
                     <connections>
                         <outlet property="tableView" destination="QRI-Kp-ffq" id="PSe-3H-2ND"/>
+                        <segue destination="fkh-gl-F8q" kind="show" identifier="toDetailSegue" id="qDh-22-h6N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="628" y="163"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="7OG-ib-K21">
+            <objects>
+                <viewController id="fkh-gl-F8q" customClass="DetailViewController" customModule="CodeViewerLite" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CVk-NQ-HHh"/>
+                        <viewControllerLayoutGuide type="bottom" id="fwy-gP-NJd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Qzf-Wn-4hv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d3d-1i-Fkd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1490" y="-119"/>
         </scene>
         <!--Root Nav View Controller-->
         <scene sceneID="O7a-6C-MHp">

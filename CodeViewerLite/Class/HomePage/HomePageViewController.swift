@@ -8,7 +8,8 @@
 
 import UIKit
 
-fileprivate let toBrowerSegueId = "toBrowerSegue"
+fileprivate let toDetailSegueID = "toDetailSegue"
+
 fileprivate let cellID = "fileCell"
 
 class HomePageViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
@@ -26,7 +27,6 @@ class HomePageViewController: BaseViewController, UITableViewDataSource, UITable
         setUI()
         
         setData()
-        
     }
     
     private func setData(){
@@ -54,10 +54,7 @@ class HomePageViewController: BaseViewController, UITableViewDataSource, UITable
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == toBrowerSegueId{
-            let toVC = segue.destination as? BrowerViewController
-            toVC?.fileModel = sender as? FileModel
-        }
+       
     }
     
     func reloadData(sender : UIRefreshControl){
@@ -111,7 +108,6 @@ extension HomePageViewController{
             homePage.currentFolderModel = model
             self.show(homePage, sender: nil)
         }else{
-//            performSegue(withIdentifier: toBrowerSegueId, sender: model)
             let brower = BrowerViewController()
             brower.fileModel = model
             self.show(brower, sender: nil)
