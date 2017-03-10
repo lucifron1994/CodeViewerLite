@@ -12,11 +12,23 @@ import SnapKit
 import ActionSheetPicker_3_0
 import SafariServices
 
+//MARK 
+/*
+ TO DO  
+        LineNum 字体颜色设置 过宽还需要减少字号
+                滚动范围，行数计算，行高根据字体大小其实是几个固定值
+                封装触发方法，主题改变、字号改变 调用刷新
+                解决剩余点击cell会变白的bug
+ */
+fileprivate let lineNumTableWidth = 25
+
 class BrowerViewController: BaseViewController, UITextViewDelegate {
     
     var fileModel:FileModel?
     
     private var codeTextView: UITextView?
+    fileprivate var lineNumTableView: UITableView?
+    private let lineNumTool = LineNumTool()
     
     @IBOutlet weak var languageButton: UIBarButtonItem!
     @IBOutlet weak var bottomToolBar: UIToolbar!
@@ -41,7 +53,11 @@ class BrowerViewController: BaseViewController, UITextViewDelegate {
 
         setUI()
         
+        initLineNum()
+        
         initText()
+        
+        updateColors()
 //        print(fileModel ?? "FileModel == NULL")
     }
     
@@ -54,10 +70,13 @@ class BrowerViewController: BaseViewController, UITextViewDelegate {
         UIView.animate(withDuration: 0.3) {
             self.indicator.stopAnimating()
             self.codeTextView?.alpha = 1
+            self.lineNumTableView?.alpha = 1
         }
     }
     
     func setUI(){
+        self.view.backgroundColor = UIColor.white
+        
         title = fileModel?.fileName
         
 //        self.edgesForExtendedLayout = .all
@@ -105,7 +124,8 @@ class BrowerViewController: BaseViewController, UITextViewDelegate {
 //        codeTextView?.contentOffset = CGPoint(x: 0, y: -64)
         
         codeTextView?.snp.makeConstraints({ (make) in
-            make.top.left.right.equalTo(self.view)
+            make.top.right.equalTo(self.view)
+            make.left.equalTo(self.view.snp.left).offset(lineNumTableWidth)
             make.bottom.equalTo(self.view.snp.bottom).offset(-44)
         })
         
@@ -113,15 +133,49 @@ class BrowerViewController: BaseViewController, UITextViewDelegate {
         fileCode = try! String.init(contentsOfFile: (fileModel?.filePath)!)
     
         codeTextView?.text = fileCode
-        
         highlightr = textStorage.highlightr
+    }
+    
+    func initLineNum(){
+        //Line Num
+        let container = UIView()
+        container.backgroundColor = UIColor.clear
+        view.addSubview(container)
+        container.snp.makeConstraints { (make) in
+            make.left.equalTo(self.view)
+            make.top.equalTo(self.view.snp.top).offset((64))
+            make.bottom.equalTo(self.view.snp.bottom).offset(-44)
+            make.width.equalTo(lineNumTableWidth)
+        }
         
-        updateColors()
+        lineNumTableView = UITableView(frame: CGRect.zero, style: .plain)
+//        lineNumTableView?.isHidden = true
+        lineNumTableView?.alpha = 0
+        lineNumTableView?.separatorStyle = .none
+        lineNumTableView?.showsVerticalScrollIndicator = false
+        lineNumTableView?.isScrollEnabled = false
+        
+        //        lineNumTool.targetTable = lineNumTableView
+        lineNumTableView?.register(UINib.init(nibName: "LineNumCell", bundle: nil), forCellReuseIdentifier: "lineNumCell")
+        
+        lineNumTableView?.delegate = lineNumTool
+        lineNumTableView?.dataSource = lineNumTool
+        
+        container.addSubview(lineNumTableView!)
+        lineNumTableView?.snp.makeConstraints({ (make) in
+            make.edges.equalTo(container)
+        })
+        
+
     }
     
     func updateColors()
     {
+        view.backgroundColor = highlightr.theme.themeBackgroundColor
         codeTextView?.backgroundColor = highlightr.theme.themeBackgroundColor
+        lineNumTableView?.backgroundColor = highlightr.theme.themeBackgroundColor
+        lineNumTableView?.reloadData()
+
         //        self.navigationBar_.barTintColor = highlightr.theme.themeBackgroundColor
         //        self.navigationBar_.tintColor = invertColor(self.navigationBar_.barTintColor!)
         //
@@ -262,5 +316,13 @@ extension BrowerViewController {
             // Fallback on earlier versions
             return true
         }
+    }
+    
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        var offset = scrollView.contentOffset
+        offset.y = offset.y + 64
+        lineNumTableView?.contentOffset = offset
+        
     }
 }

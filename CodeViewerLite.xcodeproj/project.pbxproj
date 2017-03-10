@@ -19,6 +19,9 @@
 		3EAAC7E71E334C66008DA833 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EAAC7E51E334C66008DA833 /* LaunchScreen.storyboard */; };
 		3EAAC7F31E334E52008DA833 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAAC7F21E334E52008DA833 /* HomePageViewController.swift */; };
 		3EAAC7F71E335155008DA833 /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAAC7F61E335155008DA833 /* FileHelper.swift */; };
+		3ED504E71E72594A002AD2B7 /* LineNumTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED504E61E72594A002AD2B7 /* LineNumTool.swift */; };
+		3ED504EA1E725E49002AD2B7 /* LineNumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED504E81E725E49002AD2B7 /* LineNumCell.swift */; };
+		3ED504EB1E725E49002AD2B7 /* LineNumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3ED504E91E725E49002AD2B7 /* LineNumCell.xib */; };
 		3EE0C32E1E5D310800BE2184 /* Supports in Resources */ = {isa = PBXBuildFile; fileRef = 3EE0C32C1E5D310800BE2184 /* Supports */; };
 		3EE0C32F1E5D310800BE2184 /* Helper.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3EE0C32D1E5D310800BE2184 /* Helper.txt */; };
 		3EE0C3351E5D8FBB00BE2184 /* swift.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3EE0C3341E5D8FBB00BE2184 /* swift.txt */; };
@@ -44,6 +47,9 @@
 		3EAAC7E81E334C66008DA833 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3EAAC7F21E334E52008DA833 /* HomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		3EAAC7F61E335155008DA833 /* FileHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileHelper.swift; path = HomePage/FileHelper.swift; sourceTree = "<group>"; };
+		3ED504E61E72594A002AD2B7 /* LineNumTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineNumTool.swift; sourceTree = "<group>"; };
+		3ED504E81E725E49002AD2B7 /* LineNumCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineNumCell.swift; sourceTree = "<group>"; };
+		3ED504E91E725E49002AD2B7 /* LineNumCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LineNumCell.xib; sourceTree = "<group>"; };
 		3EE0C32C1E5D310800BE2184 /* Supports */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Supports; sourceTree = "<group>"; };
 		3EE0C32D1E5D310800BE2184 /* Helper.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Helper.txt; sourceTree = "<group>"; };
 		3EE0C3341E5D8FBB00BE2184 /* swift.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = swift.txt; sourceTree = "<group>"; };
@@ -168,6 +174,9 @@
 			children = (
 				3EE0C35E1E5E7A0500BE2184 /* BrowerViewController.swift */,
 				3EE0C35F1E5E7A0500BE2184 /* BrowerViewController.xib */,
+				3ED504E61E72594A002AD2B7 /* LineNumTool.swift */,
+				3ED504E81E725E49002AD2B7 /* LineNumCell.swift */,
+				3ED504E91E725E49002AD2B7 /* LineNumCell.xib */,
 			);
 			path = Brower;
 			sourceTree = "<group>";
@@ -272,6 +281,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ED504EB1E725E49002AD2B7 /* LineNumCell.xib in Resources */,
 				3EE0C32E1E5D310800BE2184 /* Supports in Resources */,
 				3EAAC7E71E334C66008DA833 /* LaunchScreen.storyboard in Resources */,
 				3EAAC7E41E334C66008DA833 /* Assets.xcassets in Resources */,
@@ -337,6 +347,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ED504EA1E725E49002AD2B7 /* LineNumCell.swift in Sources */,
 				3E0D17491E6952AC00EC063A /* DetailViewController.swift in Sources */,
 				3EAAC7F31E334E52008DA833 /* HomePageViewController.swift in Sources */,
 				3EE0C3601E5E7A0500BE2184 /* BrowerViewController.swift in Sources */,
@@ -347,6 +358,7 @@
 				3E9296201E4C41C600408FA8 /* HomePageFileCell.swift in Sources */,
 				3E9296161E4C1EA500408FA8 /* BaseViewController.swift in Sources */,
 				3E92961B1E4C260800408FA8 /* SettingHelper.swift in Sources */,
+				3ED504E71E72594A002AD2B7 /* LineNumTool.swift in Sources */,
 				3EAAC7F71E335155008DA833 /* FileHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
